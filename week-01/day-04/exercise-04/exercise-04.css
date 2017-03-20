@@ -1,0 +1,11 @@
+h1 {
+  font-size: 36px;
+  color: rgb(226, 179, 107);
+  margin-top: 0;
+  font-family: 'Slabo 27px', serif;
+}
+
+prev {
+  margin-left: 0;
+  padding: 0;
+}

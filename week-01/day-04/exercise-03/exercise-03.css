@@ -1,0 +1,26 @@
+body {
+  font-size: 36px;
+  color: #fff;
+  text-transform: capitalize;
+  width:388px;
+  font-family: 'Roboto', sans-serif;
+}
+
+div {
+  border: 18px solid rgb(66, 133, 244);
+  height: 256px;
+  margin: 7px;
+}
+
+p {
+  text-align: center;
+  padding:20px;
+}
+
+.north {
+  background-color: rgb(230, 118, 118);
+}
+
+.south {
+  background-color: rgb(169, 230, 230);
+}

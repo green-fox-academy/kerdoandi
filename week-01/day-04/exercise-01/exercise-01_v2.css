@@ -1,0 +1,15 @@
+body{
+  font-size: 36px;
+  color: rgb(0, 85, 102);
+  text-align: left;
+  text-transform: capitalize;
+}
+
+section{
+  margin-bottom: 17px;
+  width:330px;
+  padding: 20px 50px 80px 18px;
+  border: 5px solid;
+  border-color: rgb(125, 206, 148);
+  background-color: rgb(14, 145, 161);
+}
