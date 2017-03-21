@@ -1,1 +1,4 @@
 practice/
+out
+*.class
+.idea
