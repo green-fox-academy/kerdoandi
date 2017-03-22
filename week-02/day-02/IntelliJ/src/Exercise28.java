@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Exercise28 {
   public static void main(String[] args) {
-    System.out.println("Please enter an even number: ");
+    System.out.println("Please enter a number: ");
 
     Scanner number = new Scanner(System.in);
     int row = number.nextInt();
