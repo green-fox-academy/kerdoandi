@@ -7,9 +7,9 @@ public class AppendA {
     System.out.println(appendA(am));
   }
 
-  public static String appendA(String toappend) {
+  public static String appendA(String toAppend) {
 
-    return toappend + "a";
+    return toAppend + "a";
 
   }
 }

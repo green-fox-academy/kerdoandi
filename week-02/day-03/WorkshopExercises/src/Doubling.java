@@ -4,13 +4,16 @@
 public class Doubling {
   public static void main(String[] args) {
     int ak = 123;
+    int gb = 245;
 
     System.out.println(doubling(ak));
+    System.out.println(doubling(456));
+    System.out.println(doubling(gb));
   }
 
-  public static int doubling(int ak) {
+  public static int doubling(int toDouble) {
 
-    return 2 * ak;
+    return 2 * toDouble;
   }
 
 }
