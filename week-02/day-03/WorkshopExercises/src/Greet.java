@@ -5,11 +5,11 @@ public class Greet {
   public static void main(String[] args) {
 
     String al = "Greenfox";
-    greet(al);
+    System.out.println(greet(al));
   }
 
-  public static void greet(String name) {
-    System.out.println("Greatings dear, " + name);
+  public static String greet(String al) {
+    return "Greatings dear, " + al;
   }
 }
 
