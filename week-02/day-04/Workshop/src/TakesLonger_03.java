@@ -8,11 +8,9 @@ public class TakesLonger_03 {
 
     String quote1 = quote.substring(0, 20);
     String quote2 = quote.substring(21);
-
     quote1 = quote1.concat(" always takes longer than ");
-    quote1 = quote1.concat(quote2);
 
-    System.out.println(quote1);
+    System.out.println(quote1.concat(quote2));
   }
 }
 
