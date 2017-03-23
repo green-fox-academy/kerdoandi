@@ -11,7 +11,7 @@ public class SumAll {
       sum = sum + ai[i];
 
     }
-    
+
     System.out.println(sum);
   }
 }
