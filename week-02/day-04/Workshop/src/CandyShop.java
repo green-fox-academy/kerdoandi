@@ -9,10 +9,11 @@ public class CandyShop {
     arrayList.add("Brownie");
     arrayList.add(false);
 
+
     arrayList.set(1, "Croissant");
     arrayList.set(3, "Ice cream");
 
-    System.out.println(arrayList);
+    System.out.print(arrayList);
   }
 
 }
