@@ -5,13 +5,13 @@ public class Reverse {
   public static void main(String... args) {
     String reversed = ".eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI";
 
-    System.out.println(reversedText(reversed));
+    System.out.println(reverseText(reversed));
   }
 
-  public static String reversedText(String text) {
-    String result = " ";
-    for ( int i = text.length()-1; i >= 0; i-- ) {
-      result = result + text.charAt(i);
+  public static String reverseText(String textToReverse) {
+    String result = "";
+    for ( int i = textToReverse.length()-1; i >= 0; i-- ) {
+      result = result + textToReverse.charAt(i);
     }
 
     return result;
