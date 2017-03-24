@@ -22,19 +22,16 @@ public class Anagram {
   public static boolean isAnagram(String word1, String word2) {
 
     if (word1.length() == word2.length()) {
+
       ArrayList<Character> charListWord1 = new ArrayList<Character>();
       ArrayList<Character> charListWord2 = new ArrayList<Character>();
 
-      char[] word1ToCharArray = word1.toCharArray();
-      char[] word2ToCharArray = word2.toCharArray();
-
-      for (int i = 0; i < word1ToCharArray.length; i++) {
-
-        charListWord1.add(word1ToCharArray[i]);
+      for (char w: word1.toCharArray()) {
+        charListWord1.add(w);
       }
 
-      for (int i = 0; i < word2ToCharArray.length; i++) {
-        charListWord2.add(word2ToCharArray[i]);
+      for (char w: word2.toCharArray()) {
+        charListWord2.add(w);
       }
 
       for (int i = 0; i < charListWord1.size(); i++) {
