@@ -9,25 +9,29 @@ public class GuessMyNumber {
     levelsWithLivesMap.put("intermediate", 10);
     levelsWithLivesMap.put("advanced", 5);
 
-    System.out.println("Please choose the difficulty level: \n\t-beginner\n\t-intermediate\n\t-advanced");
 
-
+    System.out.println("You can choose from 3 difficulty levels: \n\t-beginner\n\t-intermediate\n\t-advanced\n\nPlease enter the difficulty level:");
 
     Scanner input = new Scanner(System.in);
-    String level = input.next();
+    String level = input.nextLine();
 
-    System.out.println("Please enter the range");
+    while (!levelsWithLivesMap.containsKey(level)) {
+      System.out.println("Please enter the correct level name:");
+      level = input.nextLine();
+    }
+
+    int lives = levelsWithLivesMap.get(level);
+
+    System.out.println("\nPlease enter a number which will be the maximum of the range:");
     int maxNumber = input.nextInt();
     int minNumber = 1;
 
     Random rn = new Random();
     int randomNumber = rn.nextInt(maxNumber - minNumber +1) + minNumber;
-    System.out.println(randomNumber);
 
-    System.out.println("I've the number between 1-100. You have 5 lives.");
+    System.out.println("\nOk, let's play. I've the number between 1-" + maxNumber + ". You have " + lives + " lives.");
 
     boolean won = false;
-    int lives = 5;
 
     while (won == false && lives > 0)  {
       int userInput = input.nextInt();
