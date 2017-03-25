@@ -1,11 +1,22 @@
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Random;
 
 public class GuessMyNumber {
   public static void main(String[] args) {
+    HashMap<String, Integer> levelsWithLivesMap = new HashMap<String, Integer>();
+    levelsWithLivesMap.put("beginner", 15);
+    levelsWithLivesMap.put("intermediate", 10);
+    levelsWithLivesMap.put("advanced", 5);
+
+    System.out.println("Please choose the difficulty level: \n\t-beginner\n\t-intermediate\n\t-advanced");
+
+
+
+    Scanner input = new Scanner(System.in);
+    String level = input.next();
 
     System.out.println("Please enter the range");
-    Scanner input = new Scanner(System.in);
     int maxNumber = input.nextInt();
     int minNumber = 1;
 
