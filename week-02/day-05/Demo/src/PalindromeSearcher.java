@@ -1,14 +1,30 @@
+import java.util.ArrayList;
 
 public class PalindromeSearcher {
   public static void main(String[] args) {
 
-    String text = "arramarra";
+    String text = "dog goat dad duck doodle never";
+    ArrayList<String> textArrayList = new ArrayList<String>();
+    ArrayList<String> palindromeArrayList = new ArrayList<String>();
+    String palindromeCandidate = "";
 
-    System.out.println(searchPalindrome(text));
+    for (int i = 0; i < text.length() - 2; i++) {
+      for (int j = i + 2; j < text.length(); j++) {
+        if (text.charAt(i) == text.charAt(j)) {
+          palindromeCandidate = text.substring(i, j+1);
+          if (isPalindrome(palindromeCandidate))  {
+            palindromeArrayList.add(palindromeCandidate);
+          }
+        }
+      }
+    }
+
+    System.out.println(palindromeArrayList);
+
   }
 
 
-  public static boolean searchPalindrome(String input) {
+  public static boolean isPalindrome(String input) {
 
     char[] inputArray = input.toCharArray();
 
