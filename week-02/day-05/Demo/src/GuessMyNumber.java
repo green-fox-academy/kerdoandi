@@ -1,9 +1,6 @@
-import java.util.Random;
 import java.util.Scanner;
+import java.util.Random;
 
-/**
- * Created by Andi on 2017. 03. 25..
- */
 public class GuessMyNumber {
   public static void main(String[] args) {
 
@@ -19,27 +16,24 @@ public class GuessMyNumber {
     System.out.println("I've the number between 1-100. You have 5 lives.");
 
     boolean won = false;
+    int lives = 5;
 
-    while (won == false)  {
+    while (won == false && lives > 0)  {
       int userInput = input.nextInt();
 
       if (userInput > randomNumber) {
-        System.out.println("Too high.");
+        lives--;
+        System.out.println("Too high. You have " + lives + " lives left.");
       } else if (userInput < randomNumber)  {
-        System.out.println("Too low.");
+        lives--;
+        System.out.println("Too low. You have " + lives + " lives left.");
       } else  {
         won = true;
         System.out.println("Congratulations. You won!");
       }
     }
-
-
-
-
-
-
-
-
-
+    if (won == false) {
+      System.out.println("You have lost.");
+    }
   }
 }
