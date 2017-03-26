@@ -10,20 +10,25 @@ public class GuessMyNumber {
     levelsWithLivesMap.put("advanced", 5);
 
 
-    System.out.println("You can choose from 3 difficulty levels: \n\t-beginner\n\t-intermediate\n\t-advanced\n\nPlease enter the difficulty level:");
+    System.out.println("You can choose from 3 difficulty levels: \n\t- beginner\n\t- intermediate\n\t- advanced\n\nPlease enter the difficulty level:");
 
-    Scanner input = new Scanner(System.in);
-    String level = input.nextLine();
+    Scanner levelScanner = new Scanner(System.in);
+    String level = levelScanner.nextLine();
 
     while (!levelsWithLivesMap.containsKey(level)) {
       System.out.println("Please enter the correct level name:");
-      level = input.nextLine();
+      level = levelScanner.nextLine();
     }
 
     int lives = levelsWithLivesMap.get(level);
 
     System.out.println("\nPlease enter a number which will be the maximum of the range:");
-    int maxNumber = input.nextInt();
+    Scanner rangeScanner = new Scanner(System.in);
+    while (!rangeScanner.hasNextInt()) {
+      rangeScanner.nextLine();
+      System.out.println("Please enter a number: ");
+    }
+    int maxNumber = rangeScanner.nextInt();
     int minNumber = 1;
 
     Random rn = new Random();
@@ -32,9 +37,13 @@ public class GuessMyNumber {
     System.out.println("\nOk, let's play. I've the number between 1-" + maxNumber + ". You have " + lives + " lives.");
 
     boolean won = false;
-
     while (won == false && lives > 0)  {
-      int userInput = input.nextInt();
+      Scanner inputScanner = new Scanner(System.in);
+      while (!inputScanner.hasNextInt()) {
+        inputScanner.nextLine();
+        System.out.println("Please enter a number: ");
+      }
+      int userInput = inputScanner.nextInt();
 
       if (userInput > randomNumber) {
         lives--;
