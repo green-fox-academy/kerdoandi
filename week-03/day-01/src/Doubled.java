@@ -12,11 +12,12 @@ public class Doubled {
     List<String> textInList = new ArrayList<>();
     String filepath = "assets/duplicated_chars.txt";
     textInList = LottoWithMethods.readFileIntoArrayList(filepath);
-//    System.out.println(textInList);
+    printWithoutDuplicatedLetters(textInList);
+  }
 
-    for (int i = 0; i < textInList.size()-1; i++) {
-
-      char[] textInCharArray = textInList.get(i).toCharArray();
+  public static void printWithoutDuplicatedLetters (List<String> duplicatedText)  {
+    for (int i = 0; i < duplicatedText.size()-1; i++) {
+      char[] textInCharArray = duplicatedText.get(i).toCharArray();
       for (int j = 0; j < textInCharArray.length-1; j=j+2) {
         System.out.print(textInCharArray[j]);
       }
