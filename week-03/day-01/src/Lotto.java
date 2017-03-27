@@ -9,7 +9,7 @@ import java.util.List;
 public class Lotto {
   public static void main(String[] args) {
     List<String> lottoLines = new ArrayList<>();
-    
+
      try {
       Path path = Paths.get("assets/lotto.csv");
       ArrayList<String> lotto = new ArrayList<>(Files.readAllLines(path));
@@ -20,7 +20,7 @@ public class Lotto {
     }
 
     for (String oneline : lottoLines)  {
-       String[] splitLines = oneline.split(";");
+      String[] splitLines = oneline.split(";");
       System.out.println(splitLines[11]);
     }
   }
