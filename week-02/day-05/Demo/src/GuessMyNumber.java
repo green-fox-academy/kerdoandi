@@ -9,7 +9,6 @@ public class GuessMyNumber {
     levelsWithLivesMap.put("intermediate", 10);
     levelsWithLivesMap.put("advanced", 5);
 
-
     System.out.println("You can choose from 3 difficulty levels: \n\t- beginner\n\t- intermediate\n\t- advanced\n\nPlease enter the difficulty level:");
 
     Scanner levelScanner = new Scanner(System.in);
