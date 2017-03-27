@@ -9,9 +9,10 @@ public class ReversedZenLines {
     String filepath = "assets/reversed_zen_lines.txt";
     List<String> reversedText = new ArrayList<>();
     reversedText = LottoWithMethods.readFileIntoArrayList(filepath);
-//    System.out.println(reversedText);
+    printTextInOrder(reversedText);
+  }
 
-
+  public static void printTextInOrder(List<String> reversedText) {
     for (int i = 0; i < reversedText.size()-1; i++) {
       char[] text = reversedText.get(i).toCharArray();
       for (int j = text.length - 1; j > -1; j--) {
