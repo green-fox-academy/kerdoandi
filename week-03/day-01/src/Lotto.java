@@ -2,26 +2,41 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Lotto {
   public static void main(String[] args) {
-    List<String> lottoLines = new ArrayList<>();
+    List<String> lottoDataList = new ArrayList<>();
+    Map<String, Integer> lottoNumbersCounterMap = new HashMap<String, Integer>();
 
      try {
       Path path = Paths.get("assets/lotto.csv");
-      ArrayList<String> lotto = new ArrayList<>(Files.readAllLines(path));
-//      System.out.println(lotto);
+       lottoDataList = Files.readAllLines(path);
 
       } catch (IOException e)  {
       System.out.println("error happend: " + e.getClass());
     }
 
-    for (String oneline : lottoLines)  {
-      String[] splitLines = oneline.split(";");
-      System.out.println(splitLines[11]);
+//    for (int i = 0; i < lottoDataList.size(); i++) {
+      for (String dataList: lottoDataList)  {
+      String[] lottoDataListSplitted = dataList.split(";");
+      for (int j = lottoDataListSplitted.length - 5; j < lottoDataListSplitted.length; j++) {
+        String lottoNumber = lottoDataListSplitted[j];
+        if (!lottoNumbersCounterMap.containsKey(lottoNumber)) {
+          lottoNumbersCounterMap.put(lottoNumber, 1);
+        } else {
+          Integer lottoNumberCounter = lottoNumbersCounterMap.get(lottoNumber);
+          lottoNumbersCounterMap.put(lottoNumber, lottoNumberCounter + 1);
+        }
+      }
+    }
+
+    for (String lottoNumber: lottoNumbersCounterMap.keySet()) {
+
+      Integer value = lottoNumbersCounterMap.get(lottoNumber);
+      System.out.println(lottoNumber + " " + value);
+
+
     }
   }
 }

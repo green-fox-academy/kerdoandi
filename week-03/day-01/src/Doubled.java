@@ -9,24 +9,26 @@ import java.util.List;
 /**
  * Created by Andi on 2017. 03. 27..
  */
-public class Doubled {
-  public static void main(String[] args) {
-    List<String> text = new ArrayList<>();
-
-    try {
-      Path path = Paths.get("assets/duplicated_chars.txt");
-      text = Files.readAllLines(path);
-    } catch (IOException e) {
-      System.out.println("error");
-    }
-    System.out.println(text);
-
-    List<String> nonDoubledText = new ArrayList<>();
-    for (String oneline : text) {
-
-      if (oneline.length() != 0) {
-
-      }
-    }
-  }
-}
+//public class Doubled {
+//  public static void main(String[] args) {
+//
+//    List<String> textInList = new ArrayList<>();
+//
+//    try {
+//      Path path = Paths.get("assets/duplicated_chars.txt");
+//      textInList = Files.readAllLines(path);
+//    } catch (IOException e) {
+//      System.out.println("error");
+//    }
+//    System.out.println(textInList);
+//
+//    ArrayList<String> nonDoubledText;
+//    nonDoubledText = new ArrayList<>();
+//    String firstLetter;
+//    for (int i = 0; i < textInList.size()-1; i++) {
+//      char[] linesToCharArray = textInList(i).toCharArray();
+//
+//
+//    }
+//  }
+//}
