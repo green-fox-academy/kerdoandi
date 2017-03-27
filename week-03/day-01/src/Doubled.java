@@ -14,13 +14,14 @@ public class Doubled {
     textInList = LottoWithMethods.readFileIntoArrayList(filepath);
 //    System.out.println(textInList);
 
-    char[] doubledTextInCharArray = textInList.get(0).toCharArray();
-    System.out.println(doubledTextInCharArray[0]);
+    for (int i = 0; i < textInList.size()-1; i++) {
 
-
-
+      char[] textInCharArray = textInList.get(i).toCharArray();
+      for (int j = 0; j < textInCharArray.length-1; j=j+2) {
+        System.out.print(textInCharArray[j]);
+      }
+      System.out.println();
+    }
   }
-
-
 }
 
