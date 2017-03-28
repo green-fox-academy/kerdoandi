@@ -8,5 +8,7 @@ public class EncodedZenLines {
     String filepath = "assets/encoded_zen_lines.txt";
     List<String> encodedText = Functions.readFileIntoArrayList(filepath);
     System.out.println(encodedText);
+
+
   }
 }
