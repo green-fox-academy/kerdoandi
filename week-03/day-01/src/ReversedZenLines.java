@@ -8,7 +8,7 @@ public class ReversedZenLines {
   public static void main(String[] args) {
     String filepath = "assets/reversed_zen_lines.txt";
     List<String> reversedText = new ArrayList<>();
-    reversedText = LottoWithMethods.readFileIntoArrayList(filepath);
+    reversedText = Functions.readFileIntoArrayList(filepath);
     printTextInOrder(reversedText);
   }
 
