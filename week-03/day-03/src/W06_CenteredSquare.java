@@ -10,6 +10,7 @@ public class W06_CenteredSquare {
     // draw a green 10x10 square to the canvas' center.
     graphics.setColor(Color.GREEN);
     graphics.drawRect(145,145,10,10);
+    graphics.drawRect(0,0,300,300);
   }
 
   //    Don't touch the code below
