@@ -12,14 +12,12 @@ public class W08_PositionSquare {
     // and draws a 50x50 square from that point.
     // draw 3 squares with that function.
     Random rand = new Random();
-    
+
     for (int i = 0; i < 3; i++) {
       int x = rand.nextInt(250);
       int y = rand.nextInt(250);
       drawSquare(graphics, x, y);
     }
-
-
   }
 
   public static void drawSquare(Graphics g, int x, int y) {
@@ -45,6 +43,4 @@ public class W08_PositionSquare {
 
     }
   }
-
-
 }
