@@ -11,10 +11,20 @@ public class W16_LinePlayQuarters {
     // and repeat this pattern in each quarter:
     // [https://github.com/greenfox-academy/teaching-materials/blob/master/exercises/drawing/line-play/r1.png]
   graphics.setColor(Color.blue);
-  graphics.drawLine(150,0,150,300);
-  graphics.drawLine(0, 150, 300,150);
+
+  int canvasXStart = 0;
+  int canvasXEnd = 300;
+  int canvasYStart = 0;
+  int canvasYEnd = 300;
+
+   int x = canvasXEnd - canvasXStart;
+   int y = canvasYEnd - canvasYStart;
+
+      graphics.drawLine();
+      graphics.drawLine();
 
 
+    }
 
   }
 
