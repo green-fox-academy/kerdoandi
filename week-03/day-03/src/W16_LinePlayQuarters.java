@@ -6,26 +6,22 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 
 public class W16_LinePlayQuarters {
-  public static void mainDraw(Graphics graphics){
+  public static void mainDraw(Graphics graphics) {
     // divide the canvas into 4 parts
     // and repeat this pattern in each quarter:
     // [https://github.com/greenfox-academy/teaching-materials/blob/master/exercises/drawing/line-play/r1.png]
-  graphics.setColor(Color.blue);
+    graphics.setColor(Color.blue);
 
-  int canvasXStart = 0;
-  int canvasXEnd = 300;
-  int canvasYStart = 0;
-  int canvasYEnd = 300;
+    int canvasLength = 300;
+    int maxInterval = 75;
 
-   int x = canvasXEnd - canvasXStart;
-   int y = canvasYEnd - canvasYStart;
+    for (int i = canvasLength/2; i >= maxInterval; i = i / 2) {
+      for (int j = 0; j < canvasLength/i-1; j++) {
+        graphics.drawLine((j+1)*i, 0, (j+1)*i, canvasLength);
+        graphics.drawLine(0, (j+1)*i, canvasLength, (j+1)*i);
 
-      graphics.drawLine();
-      graphics.drawLine();
-
-
+      }
     }
-
   }
 
   //    Don't touch the code below
