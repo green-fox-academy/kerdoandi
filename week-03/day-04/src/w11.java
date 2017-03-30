@@ -7,20 +7,20 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class w11 {
   public static void mainDraw(Graphics graphics) {
     graphics.setColor(Color.BLACK);
-    graphics.drawRect(0, 0, 600, 600);
-
-    toMultiplyBoxes(graphics, 0, 0, 600, 5);
+     toMultiplyBoxes(graphics, 0, 0, 600);
   }
 
-  public static void toMultiplyBoxes(Graphics g, int x, int y, int size, int i) {
+  public static void toMultiplyBoxes(Graphics g, int x, int y, int size) {
     g.drawRect(x,y,size,size);
 
-    if (i > 0)  {
+    if (size < 5) {
+      return;
+    } else {
 
-      toMultiplyBoxes(g, x + size/3, y, size/3, i-1 );
-      toMultiplyBoxes(g, x, y + size/3, size/3, i-1 );
-      toMultiplyBoxes(g, x + size/3, y + 2*size/3, size/3, i-1);
-      toMultiplyBoxes(g, x + 2*size/3, y + size/3, size/3, i-1);
+      toMultiplyBoxes(g, x + size/3, y, size/3);
+      toMultiplyBoxes(g, x, y + size/3, size/3);
+      toMultiplyBoxes(g, x + size/3, y + 2*size/3, size/3);
+      toMultiplyBoxes(g, x + 2*size/3, y + size/3, size/3);
     }
   }
 
