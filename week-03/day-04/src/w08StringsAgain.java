@@ -13,7 +13,7 @@ public class w08StringsAgain {
     if (text.length()<1) {
       return text;
 
-    } else{
+    } else {
 
       if (text.charAt(0) == remove) {
         return toRemoveX(text.substring(1));
