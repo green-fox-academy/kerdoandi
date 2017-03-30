@@ -17,12 +17,13 @@ public class W19_StarryNight {
 
     Random rand = new Random();
     int size = 2;
-    int x = rand.nextInt(100) + 1;
-    int y = rand.nextInt(100) + 1;
 
-    for (int i = 0; i < 300; i++) {
+
+    for (int i = 1; i < 5; i++) {
+      int x = rand.nextInt(150) + 1;
+      int y = rand.nextInt(150) + 1;
       graphics.setColor(Color.WHITE);
-      graphics.fillRect(i*x,i*y,size, size);
+      graphics.fillRect(x,y,size, size);
     }
   }
 
