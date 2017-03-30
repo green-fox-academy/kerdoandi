@@ -5,30 +5,22 @@ import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class w11 {
-  public static void mainDraw(Graphics graphics){
-    int canvasSize = 300;
+  public static void mainDraw(Graphics graphics) {
+    graphics.setColor(Color.BLACK);
+    graphics.drawRect(0, 0, 600, 600);
 
-
-
+    toMultiplyBoxes(graphics, 0, 0, 600, 5);
   }
 
-  public static void toMultiplyBoxes(Graphics g, int i) {
-    int canvasSize = 300;
+  public static void toMultiplyBoxes(Graphics g, int x, int y, int size, int i) {
+    g.drawRect(x,y,size,size);
 
-    if (i == 0) {
-      g.setColor(Color.BLACK);
-      g.drawRect(0, 0, canvasSize, canvasSize);
-      return toMultiplyBoxes(g, i);
+    if (i > 0)  {
 
-    } else {
-      canvasSize = canvasSize/3;
-
-      g.drawRect(canvasSize , 0, canvasSize, canvasSize);
-      g.drawRect(2 * canvasSize, canvasSize, canvasSize, canvasSize );
-      g.drawRect(canvasSize, 2 * canvasSize, canvasSize, canvasSize);
-      g.drawRect(0, canvasSize, canvasSize, canvasSize);
-
-      return toMultiplyBoxes(g,i -1);
+      toMultiplyBoxes(g, x + size/3, y, size/3, i-1 );
+      toMultiplyBoxes(g, x, y + size/3, size/3, i-1 );
+      toMultiplyBoxes(g, x + size/3, y + 2*size/3, size/3, i-1);
+      toMultiplyBoxes(g, x + 2*size/3, y + size/3, size/3, i-1);
     }
   }
 
