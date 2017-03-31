@@ -7,23 +7,22 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class W19_StarryNight {
   public static void mainDraw(Graphics graphics){
-    // draw the night sky:
-    // - The background should be black
-    // - The stars can be small squares
-    // - The stars should have random positions on the canvas
-    // - The stars should have random color (some shade of grey)
+
     graphics.setColor(Color.BLACK);
-    graphics.fillRect(0,0,300,300);
+    graphics.fillRect(0,0,900,900);
 
-    Random rand = new Random();
-    int size = 2;
+    int size = 4;
 
 
-    for (int i = 1; i < 5; i++) {
-      int x = rand.nextInt(150) + 1;
-      int y = rand.nextInt(150) + 1;
-      graphics.setColor(Color.WHITE);
-      graphics.fillRect(x,y,size, size);
+    for (int i = 1; i < 200; i++) {
+      int x = (int) (Math.random() * 900);
+      int y = (int) (Math.random() * 900);
+
+      int c = (int) (Math.random() * 255);
+      Color grey = new Color(c,c,c);
+
+      graphics.setColor(grey);
+      graphics.fillRect(x,y,size,size);
     }
   }
 
