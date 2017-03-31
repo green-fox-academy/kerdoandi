@@ -16,19 +16,19 @@ public class W19_SNRec {
 
   }
 
-    public static void toDrawRandomStars(Graphics g,  int canvasSize, int starSize, int rgb, int counter ) {
-        int x = (int) (Math.random() * canvasSize);
-        int y = (int) (Math.random() * canvasSize);
+    public static void toDrawRandomStars(Graphics g, int cSize, int starSize, int rgb, int counter) {
+        int x = (int) (Math.random() * cSize);
+        int y = (int) (Math.random() * cSize);
         int c = (int) (Math.random() * rgb);
-
         Color grey = new Color(c, c, c);
+
         g.setColor(grey);
         g.fillRect(x, y, starSize, starSize);
 
       if (counter < 1) {
         return;
       } else {
-        toDrawRandomStars(g,  canvasSize, starSize, rgb,counter - 1);
+        toDrawRandomStars(g, cSize, starSize, rgb,counter - 1);
       }
     }
 

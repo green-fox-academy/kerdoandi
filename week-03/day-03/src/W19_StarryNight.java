@@ -1,18 +1,13 @@
 import javax.swing.*;
-
 import java.awt.*;
-import java.util.Random;
-
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class W19_StarryNight {
   public static void mainDraw(Graphics graphics){
-
     graphics.setColor(Color.BLACK);
     graphics.fillRect(0,0,900,900);
 
-    int size = 4;
-
+    int size = 2;
 
     for (int i = 1; i < 200; i++) {
       int x = (int) (Math.random() * 900);
