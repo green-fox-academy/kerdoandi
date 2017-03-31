@@ -1,30 +1,25 @@
 import javax.swing.*;
 import java.awt.*;
-
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class SquareGrid {
   public static void mainDraw(Graphics graphics) {
-    graphics.setColor(Color.black);
-    graphics.fillRect(0,0,200,200);
-    graphics.setColor(Color.RED);
-    graphics.fillRect(5,5,190,190);
-
-
+    graphics.setColor(Color.BLACK);
+    squareGrid(graphics, 200, 200,200);
   }
 
-  public static void squareGrid(Graphics g, int x, int y, int size, int i,) {
-    g.setColor(Color.BLACK);
-    g.fillRect(x, y, size, size);
-    g.setColor(Color.WHITE);
-    g.fillRect(x-i, y -i , size - 2*i, size - 2*i);
+  public static void squareGrid(Graphics g, int x, int y, int size) {
 
-    if (i < 2) {
+    g.drawRect(x, y, size, size);
+
+    if (size < 20) {
       return;
     } else {
 
-
-
+      squareGrid(g, x-size/4, y - size/4, size/2);
+      squareGrid(g, x + 3*size/4, y-size/4, size/2);
+      squareGrid(g, x - size/4, y + 3*size/4, size/2);
+      squareGrid(g, x + 3*size/4,y + 3*size/4, size/2);
 
     }
   }
@@ -42,6 +37,7 @@ public class SquareGrid {
     @Override
     protected void paintComponent(Graphics graphics) {
       super.paintComponent(graphics);
+      this.setBackground(Color.WHITE);
       mainDraw(graphics);
 
     }
