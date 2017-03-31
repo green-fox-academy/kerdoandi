@@ -7,7 +7,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Circles {
   public static void mainDraw(Graphics graphics) {
     graphics.setColor(Color.BLACK);
-    toMultiplyOvals(graphics, 0, 0, 300);
+    toMultiplyOvals(graphics, 0, 0, 600);
   }
 
   public static void toMultiplyOvals(Graphics g, int x, int y, int size) {
