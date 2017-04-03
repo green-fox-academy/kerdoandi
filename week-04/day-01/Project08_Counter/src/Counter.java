@@ -16,11 +16,11 @@ public class Counter {
   }
 
   public int add() {
-    return this.value = this.value + 1;
+    return value = value + 1;
   }
 
   public int add(int number) {
-    return this.value = this.value + number;
+    return value = value + number;
   }
 
   public int get() {
@@ -28,7 +28,7 @@ public class Counter {
   }
 
   public int reset() {
-    return this.value = this.firstValue;
+    return value = firstValue;
   }
 }
 
