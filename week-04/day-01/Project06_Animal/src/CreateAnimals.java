@@ -3,8 +3,8 @@
  */
 public class CreateAnimals {
   public static void main(String[] args) {
-    Animals dog = new Animals(50, 50);
-    Animals cat = new Animals(50, 50);
+    Animals dog = new Animals();
+    Animals cat = new Animals();
 
     cat.toDrink();
     cat.toEat();

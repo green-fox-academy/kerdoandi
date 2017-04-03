@@ -5,9 +5,9 @@ public class Animals {
  int hungerValue;
  int thirstValue;
 
-  public Animals(int hungerValue, int thirstValue) {
-    this.hungerValue = hungerValue;
-    this.thirstValue = thirstValue;
+  public Animals() {
+    hungerValue = 50;
+    thirstValue = 50;
   }
 
   public void toEat() {
