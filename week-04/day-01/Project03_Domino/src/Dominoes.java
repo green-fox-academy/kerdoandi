@@ -11,6 +11,17 @@ public class Dominoes {
     System.out.println(dominoes);
   }
 
+  public static List<Domino> toOrder(List<Domino> input) {
+    List<Domino> temp = new ArrayList<>();
+
+    if (input.size()<0) {
+      return;
+    } else {
+      
+
+    }
+  }
+
   static List<Domino> initializeDominoes() {
     List<Domino> dominoes = new ArrayList<>();
     dominoes.add(new Domino(5, 2));
