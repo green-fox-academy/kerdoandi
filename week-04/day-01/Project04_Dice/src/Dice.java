@@ -15,6 +15,7 @@ public class Dice {
     return dices;
   }
 
+
   public int[] getCurrent() {
     return dices;
   }
@@ -31,17 +32,5 @@ public class Dice {
 
   public void reroll(int k) {
     dices[k] = (int) (Math.random() * 6) + 1;
-  }
-
-  public static void main(String[] args) {
-    Dice myDice = new Dice();
-    myDice.getCurrent();
-    myDice.roll();
-    myDice.getCurrent();
-    myDice.getCurrent(5);
-    myDice.reroll();
-    myDice.getCurrent();
-    myDice.reroll(4);
-    myDice.getCurrent();
   }
 }
