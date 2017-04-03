@@ -7,7 +7,7 @@ public class Domino {
     this.values = new int[]{valueA, valueB};
   }
 
-  public int[] getValues() {
+  public int[] getValues(int i) {
     return values;
   }
 
