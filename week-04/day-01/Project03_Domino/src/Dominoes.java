@@ -15,11 +15,11 @@ public class Dominoes {
 
   public static List<Domino> toOrder(List<Domino> input) {
     for (int i = 0; i < input.size() - 1; i++) {
-      int[] valueA = input.get(i).getValues();
+      int valueA = input.get(i).getValues()[1];
       for (int j = i+1; j < input.size(); j++) {
-        int[] valueB = input.get(j).getValues();
-        if (valueA[1] == valueB[0]) {
-          Collections.swap(input, i + 1, j);
+        int valueB = input.get(j).getValues()[0];
+        if (valueA == valueB) {
+          Collections.swap(input, i+1,j );
         }
       }
     }

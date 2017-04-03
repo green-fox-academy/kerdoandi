@@ -7,9 +7,9 @@ public class Domino {
     this.values = new int[]{valueA, valueB};
   }
 
-  public int[] getValues(int i) {
+  public int[] getValues() {
     return values;
-  }
+}
 
   @Override
   public String toString() {
