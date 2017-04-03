@@ -9,7 +9,7 @@ public class Station {
   }
 
   public void refill(Car car) {
-    gasAmount = gasAmount - car.capacity;
-    car.capacity = car.capacity + gasAmount;
+    this.gasAmount -= car.capacity;
+    car.gasAmount += car.capacity;
   }
 }
