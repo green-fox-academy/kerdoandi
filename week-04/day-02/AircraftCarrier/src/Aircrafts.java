@@ -5,11 +5,13 @@ public class Aircrafts {
   int maxAmmo;
   int baseDamage;
   private int ammoStore;
+  int allDamage;
 
-  public Aircrafts(int maxAmmo, int baseDamage, int ammoStore) {
+  public Aircrafts(int maxAmmo, int baseDamage, int ammoStore, int allDamage) {
     this.maxAmmo = maxAmmo;
     this.baseDamage = baseDamage;
     this.ammoStore = ammoStore;
+    this.allDamage = allDamage;
   }
 
   public int getAmmoStore() {
@@ -21,6 +23,7 @@ public class Aircrafts {
   }
   public int fight() {
     int damage = this.ammoStore * this.baseDamage;
+    this.allDamage = this.allDamage + damage;
     this.ammoStore = 0;
     return damage;
   }
@@ -44,6 +47,7 @@ public class Aircrafts {
     return "";
   }
 
-
-
+  public void getStatus() {
+    System.out.println("Type " + this.getType() + ", Ammo: " + ammoStore + ", Base Damage: " + baseDamage + ", All Damage: " + allDamage);
+  }
 }
