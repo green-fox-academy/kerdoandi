@@ -53,8 +53,8 @@ public class Carrier {
         }
       }
 
-      for (int i = 0; i < f35List.size(); i++) {
-        storeOfAmmo = f35List.get(i).refill(storeOfAmmo);
+      for (int i = 0; i < carrier.size(); i++) {
+        storeOfAmmo = carrier.get(i).refill(storeOfAmmo);
       }
 
       if (storeOfAmmo > 0) {
