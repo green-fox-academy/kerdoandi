@@ -20,9 +20,7 @@ public class CoolGreenfoxApp {
     Mentor mentor = new Mentor();
     people.add(mentor);
     Sponsor sponsor = new Sponsor();
-    people.add(sponsor);
     Sponsor elon = new Sponsor("Elon Musk", 46, "male", "SpaceX");
-    people.add(elon);
 
     student.skipDays(3);
 
@@ -33,10 +31,16 @@ public class CoolGreenfoxApp {
       sponsor.hire();
     }
 
-    for(Person person : people) {
+    for (Person person : people) {
       person.introduce();
       person.getGoal();
     }
 
+    Lagopus badass = new Lagopus("BADA55");
+    badass.addStudent(student);
+    badass.addStudent(john);
+    badass.addMentor(mentor);
+    badass.addMentor(gandhi);
+    badass.info();
   }
 }
