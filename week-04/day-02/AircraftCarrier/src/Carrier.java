@@ -44,24 +44,25 @@ public class Carrier {
     if (storeOfAmmo > getTotalAircraftCapacity()) {
       for (int i = 0; i < carrier.size(); i++) {
         storeOfAmmo = carrier.get(i).refill(storeOfAmmo);
+      }
+    } else if (storeOfAmmo < getTotalAircraftCapacity()) {
+      List<Aircrafts> f35List = new ArrayList<>();
+      for (int i = 0; i < carrier.size(); i++) {
+        if (carrier.get(i).getType().equals("F35")) {
+          f35List.add(carrier.get(i));
+        }
+      }
 
-      } else if (storeOfAmmo < getTotalAircraftCapacity()) {
-        List<Aircrafts> f35List = new ArrayList<>();
+      for (int i = 0; i < f35List.size(); i++) {
+        storeOfAmmo = f35List.get(i).refill(storeOfAmmo);
+      }
+
+      if (storeOfAmmo > 0) {
         for (int i = 0; i < carrier.size(); i++) {
-          if (carrier.get(i).getType().equals("F35")) {
-            f35List.add(carrier.get(i));
-          }
+          storeOfAmmo = carrier.get(i).refill(storeOfAmmo);
         }
-        for (int i = 0; i < f35List.size(); i++) {
-          storeOfAmmo = f35List.get(i).refill(storeOfAmmo);
-        }
-        if (storeOfAmmo > 0) {
-          for (int i = 0; i < carrier.size(); i++) {
-            storeOfAmmo = carrier.get(i).refill(storeOfAmmo);
-          }
-        } else {
-          System.out.println("Don't know how to throw an exception.");
-        }
+      } else {
+        System.out.println("Don't know how to throw an exception.");
       }
     }
   }
