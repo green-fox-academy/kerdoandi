@@ -50,4 +50,5 @@ public class Aircrafts {
   public void getStatus() {
     System.out.println("Type " + this.getType() + ", Ammo: " + ammoStore + ", Base Damage: " + baseDamage + ", All Damage: " + allDamage);
   }
+
 }
