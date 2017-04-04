@@ -18,16 +18,22 @@ public class GardenApp {
     garden.addPlants(m);
     garden.addPlants(n);
 
+    System.out.println();
+
     y.needWater();
     x.needWater();
     m.needWater();
     n.needWater();
+
+    System.out.println();
 
     garden.water(40);
     y.needWater();
     x.needWater();
     m.needWater();
     n.needWater();
+
+    System.out.println();
 
     garden.water(70);
     y.needWater();
