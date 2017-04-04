@@ -10,7 +10,7 @@ public class Aircrafts {
   public Aircrafts(String type, int maxAmmo, int baseDamage, int ammoStore) {
     this.type = type;
     this.maxAmmo = maxAmmo;
-    this.baseDamage = ammoStore;
+    this.baseDamage = baseDamage;
     this.ammoStore = ammoStore;
   }
 
@@ -21,10 +21,25 @@ public class Aircrafts {
   public void setAmmoStore(int number) {
     this.ammoStore = this.ammoStore + number;
   }
-
   public int fight() {
-    return this.ammoStore * this.baseDamage;
+    int damage = this.ammoStore * this.baseDamage;
+    this.ammoStore = 0;
+    return damage;
+  }
 
+  public int refill(int fillAmount) {
+    int capacity = maxAmmo - ammoStore;
+    if (capacity == 0) {
+      return fillAmount;
+    } else {
+      if (fillAmount > capacity) {
+        this.setAmmoStore(capacity);
+        return fillAmount - capacity;
+      } else {
+        this.setAmmoStore(fillAmount);
+        return 0;
+      }
+    }
   }
 
 
