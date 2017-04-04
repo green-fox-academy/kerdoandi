@@ -2,13 +2,11 @@
  * Created by Andi on 4/4/2017.
  */
 public class Aircrafts {
-  String type;
   int maxAmmo;
   int baseDamage;
   private int ammoStore;
 
-  public Aircrafts(String type, int maxAmmo, int baseDamage, int ammoStore) {
-    this.type = type;
+  public Aircrafts(int maxAmmo, int baseDamage, int ammoStore) {
     this.maxAmmo = maxAmmo;
     this.baseDamage = baseDamage;
     this.ammoStore = ammoStore;
@@ -40,6 +38,10 @@ public class Aircrafts {
         return 0;
       }
     }
+  }
+
+  public String getType() {
+    return "";
   }
 
 
