@@ -44,7 +44,7 @@ class ExtensionTest {
   @Test
   void testIsVowel_a() {
     assertTrue(extension.isVowel('a'));
-  }
+}
 
   @Test
   void testIsVowel_u() {

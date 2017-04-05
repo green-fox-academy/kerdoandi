@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by aze on 2017.04.04..
@@ -36,16 +33,15 @@ public class Extension {
   }
 
   String translate(String hungarian) {
-    String teve = hungarian;
-    int length = teve.length();
+    int length = hungarian.length();
     for (int i = 0; i < length; i++) {
-      char c = teve.charAt(i);
+      char c = hungarian.charAt(i);
       if (isVowel(c)) {
-        teve = String.join(c + "v" + c, teve.split(""+c));
+        hungarian = String.join(c + "v" + c, hungarian.split(""+c));
         i+=2;
         length+=2;
       }
     }
-    return teve;
+    return hungarian;
   }
 }
