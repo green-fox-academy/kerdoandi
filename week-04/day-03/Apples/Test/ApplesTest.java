@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class ApplesTest {
   @Test
   public void getName() throws Exception {
-    Apples apple = new Apples("sweetApple");
-    assertEquals("sweetApple", apple.getName());
+    Apples apple = new Apples("apple");
+    assertEquals("apple", apple.getName());
   }
 }
