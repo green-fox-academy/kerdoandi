@@ -20,8 +20,8 @@ public class Dominoes {
         int valueB = input.get(j).getValues()[0];
         if (valueA == valueB) {
           Collections.swap(input, i+1,j );
-        }
-      }
+    }
+  }
     }
     return input;
   }
