@@ -1,12 +1,10 @@
-import org.omg.CORBA.MARSHAL;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by Andi on 4/5/2017.
  */
+
 public class CountLetter {
   String text;
 
@@ -28,11 +26,5 @@ public class CountLetter {
       }
     }
     return map;
-  }
-
-  public static void main(String[] args) {
-    CountLetter t = new CountLetter("asdfasd");
-    System.out.println(t.countLetter());
-
   }
 }
