@@ -5,13 +5,25 @@ import java.util.List;
  * Created by Andi on 4/4/2017.
  */
 public class Carrier {
-  List<Aircrafts> carrier = new ArrayList<>();
+  List<Aircraft> carrier = new ArrayList<>();
   int storeOfAmmo;
   int healthPoint;
 
   public Carrier(int storeOfAmmo, int healthPoint) {
     this.storeOfAmmo = storeOfAmmo;
     this.healthPoint = healthPoint;
+  }
+
+  public int getHealthPoint() {
+    return this.healthPoint;
+  }
+
+  public void setHealthPoint(int i) {
+    this.healthPoint = this.healthPoint + i;
+  }
+
+  public Aircraft getAircraft(int i) {
+    return carrier.get(i);
   }
 
   public void addAircraft(String type) {
@@ -46,17 +58,15 @@ public class Carrier {
         storeOfAmmo = carrier.get(i).refill(storeOfAmmo);
       }
     } else if (storeOfAmmo < getTotalAircraftCapacity()) {
-      List<Aircrafts> f35List = new ArrayList<>();
+      List<Aircraft> f35List = new ArrayList<>();
       for (int i = 0; i < carrier.size(); i++) {
         if (carrier.get(i).getType().equals("F35")) {
           f35List.add(carrier.get(i));
         }
       }
-
-      for (int i = 0; i < carrier.size(); i++) {
-        storeOfAmmo = carrier.get(i).refill(storeOfAmmo);
+      for (int i = 0; i < f35List.size(); i++) {
+        storeOfAmmo = f35List.get(i).refill(storeOfAmmo);
       }
-
       if (storeOfAmmo > 0) {
         for (int i = 0; i < carrier.size(); i++) {
           storeOfAmmo = carrier.get(i).refill(storeOfAmmo);
@@ -66,4 +76,31 @@ public class Carrier {
       }
     }
   }
+
+  public int getCarrierDamage() {
+    int carrierDamage = 0;
+    for (int i = 0; i < carrier.size(); i++) {
+      carrierDamage = carrierDamage + carrier.get(i).fight();
+    }
+    return carrierDamage;
+  }
+
+  public void fight(Carrier enemy) {
+    enemy.setHealthPoint(enemy.getHealthPoint() - getCarrierDamage());
+  }
+
+  public int getNumberofAircrafts() {
+    return carrier.size();
+  }
+
+  public void getAllAircraftStatus() {
+    for (Aircraft ac : carrier) {
+      ac.getStatus();
+    }
+  }
+
+  public void getStatus() {
+    System.out.println("Aircraft count: " + getNumberofAircrafts() + ", Ammo Storage: " + storeOfAmmo + ", Total damage: " + getCarrierDamage());
+  }
+
 }

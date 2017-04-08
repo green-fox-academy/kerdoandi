@@ -7,10 +7,8 @@ public class Thing {
   }
 
   public void complete() {
-    this.completed = true;{
+    this.completed = true;
   }
-
-
 
   @Override
   public String toString() {

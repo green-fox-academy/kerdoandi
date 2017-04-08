@@ -1,13 +1,13 @@
 /**
  * Created by Andi on 4/4/2017.
  */
-public class Aircrafts {
+public class Aircraft {
   int maxAmmo;
   int baseDamage;
   private int ammoStore;
   int allDamage;
 
-  public Aircrafts(int maxAmmo, int baseDamage, int ammoStore, int allDamage) {
+  public Aircraft(int maxAmmo, int baseDamage, int ammoStore, int allDamage) {
     this.maxAmmo = maxAmmo;
     this.baseDamage = baseDamage;
     this.ammoStore = ammoStore;
@@ -21,6 +21,7 @@ public class Aircrafts {
   public void setAmmoStore(int number) {
     this.ammoStore = this.ammoStore + number;
   }
+
   public int fight() {
     int damage = this.ammoStore * this.baseDamage;
     this.allDamage = this.allDamage + damage;
@@ -50,5 +51,4 @@ public class Aircrafts {
   public void getStatus() {
     System.out.println("Type " + this.getType() + ", Ammo: " + ammoStore + ", Base Damage: " + baseDamage + ", All Damage: " + allDamage);
   }
-
 }

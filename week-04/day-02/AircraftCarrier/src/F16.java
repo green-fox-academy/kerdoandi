@@ -1,7 +1,7 @@
 /**
  * Created by Andi on 4/4/2017.
  */
-public class F16 extends Aircrafts {
+public class F16 extends Aircraft {
   public static final String TYPE = "F16";
 
   public F16() {
