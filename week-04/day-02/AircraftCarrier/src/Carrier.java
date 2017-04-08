@@ -93,6 +93,14 @@ public class Carrier {
     return carrier.size();
   }
 
+  public int getTotalDamage() {
+    int totalDamage = 0;
+    for (Aircraft ac : carrier) {
+      totalDamage = totalDamage + ac.allDamage;
+    }
+    return  totalDamage;
+  }
+
   public void getAllAircraftStatus() {
     for (Aircraft ac : carrier) {
       ac.getStatus();
@@ -100,7 +108,7 @@ public class Carrier {
   }
 
   public void getStatus() {
-    System.out.println("Aircraft count: " + getNumberofAircrafts() + ", Ammo Storage: " + storeOfAmmo + ", Total damage: " + getCarrierDamage());
+    System.out.println("Aircraft count: " + getNumberofAircrafts() + ", Ammo Storage: " + storeOfAmmo + ", Total damage: " + getTotalDamage());
   }
 
 }
