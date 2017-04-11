@@ -8,7 +8,7 @@ public class Board extends JComponent implements KeyListener {
   int testBoxX;
   int testBoxY;
   static final int DIMENSION = 72;
-  int[][] tilesMap = new int[][] {
+  int[][] tilesMap = new int[][]{
           {0, 0, 0, 1, 0, 1, 0, 0, 0, 0,},
           {0, 0, 0, 1, 0, 1, 0, 1, 1, 0,},
           {0, 1, 1, 1, 0, 1, 0, 1, 1, 0,},
@@ -45,12 +45,11 @@ public class Board extends JComponent implements KeyListener {
         }
         posX += DIMENSION;
       }
-      posX = 0;
+      posX= 0;
       posY += DIMENSION;
     }
-    PositionedImage hero = new PositionedImage("pictures/hero-down.png",0, 0);
-    hero.draw(graphics);
   }
+
 
 
   public static void main(String[] args) {
