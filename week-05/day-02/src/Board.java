@@ -52,9 +52,7 @@ public class Board extends JComponent implements KeyListener {
       posY += DIMENSION;
     }
     PositionedImage hero = new PositionedImage(pic, testBoxX, testBoxY);
-    PositionedImage skeleton = new PositionedImage("pictures/skeleton.png", DIMENSION, DIMENSION);
     hero.draw(graphics);
-    skeleton.draw(graphics);
   }
 
   @Override
@@ -76,9 +74,10 @@ public class Board extends JComponent implements KeyListener {
 
   @Override
   public void keyReleased(KeyEvent e) {
+    System.out.println("testBoxX: " + testBoxX + "testboxY " + testBoxY);
     if (e.getKeyCode() == KeyEvent.VK_UP) {
       pic = "pictures/hero-up.png";
-      if (tilesMap[(testBoxY/72) -1][testBoxX/72] != 1  && testBoxY > 0) {
+      if (tilesMap[(testBoxY/72) -1][testBoxX/72] != 1  && testBoxY > 71) {
         testBoxY -= 72;
       }
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -88,7 +87,7 @@ public class Board extends JComponent implements KeyListener {
       }
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
       pic = "pictures/hero-left.png";
-      if (tilesMap[testBoxY/72][(testBoxX/72) -1] != 1  && testBoxX > 0) {
+      if (tilesMap[testBoxY/72][(testBoxX/72) -1] != 1  && testBoxX > 71) {
         testBoxX -= 72;
       }
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
