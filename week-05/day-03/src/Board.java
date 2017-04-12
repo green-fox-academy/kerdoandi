@@ -68,15 +68,20 @@ public class Board extends JComponent implements KeyListener {
 
   @Override
   public void keyReleased(KeyEvent e) {
-    if (e.getKeyCode() == KeyEvent.VK_UP) {
-      myHero.moveUp();
-    } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-      myHero.moveDown();
-    } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      myHero.moveLeft();
-    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      myHero.moveRight();
-    }
+    int counter = 0;
+      if (e.getKeyCode() == KeyEvent.VK_UP) {
+        myHero.moveUp();
+        counter += 1;
+      } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+        myHero.moveDown();
+        counter += 1;
+      } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        myHero.moveLeft();
+        counter += 1;
+      } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        myHero.moveRight();
+        counter += 1;
+      }
     repaint();
   }
 }
