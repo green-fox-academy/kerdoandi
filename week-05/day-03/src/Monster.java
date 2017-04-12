@@ -24,4 +24,31 @@ public class Monster extends GameObject {
     randomCoords.add(y);
     return randomCoords;
   }
+
+  public void moveMonster(int heroPosX, int heroPosY) {
+    System.out.println("posX: " + posX + " posY: " + posY + "herox: " + heroPosX + " heroY: " + heroPosY);
+    if (posY < 10 && heroPosY > posY) {
+      if (!map.isItWall(this.posX, this.posY + 1)) {
+        this.posY += 1;
+      }
+    }
+
+    if (posY < 10 && heroPosY < posY) {
+      if (!map.isItWall(this.posX, this.posY + 1)) {
+        this.posY -= 1;
+      }
+    }
+
+    if (posX < 9 && heroPosX > posX) {
+      if (!map.isItWall(this.posX + 1, this.posY)) {
+        this.posX += 1;
+      }
+    }
+
+    if (posX > 0 && heroPosX < posX) {
+      if (!map.isItWall(this.posX - 1, this.posY)) {
+        this.posX -= 1;
+      }
+    }
+  }
 }

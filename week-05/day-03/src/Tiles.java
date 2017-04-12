@@ -19,12 +19,4 @@ public class Tiles extends GameObject{
   public boolean isClear() {
     return this.costume.equals("pic/floor.png");
   }
-
-  public HashMap<Integer, Integer> getWallCoord() {
-    HashMap<Integer, Integer> wallCoordinates = new HashMap<>();
-    if(!this.isClear()) {
-      wallCoordinates.put(posX, posY);
-    }
-    return wallCoordinates;
-  }
 }

@@ -8,6 +8,7 @@ public class Board extends JComponent implements KeyListener {
 
   int testBoxX;
   int testBoxY;
+  int keyeventCounter = 0;
   Map map = new Map();
   Hero myHero = new Hero(0,0,"pic/hero-down.png", map);
   Monster skeleton = new Monster("pic/skeleton.png", map);
@@ -19,6 +20,7 @@ public class Board extends JComponent implements KeyListener {
   public Board() {
     testBoxX = 0;
     testBoxY = 0;
+
 
     // set the size of your draw board
     setPreferredSize(new Dimension(720, 800));
@@ -68,19 +70,24 @@ public class Board extends JComponent implements KeyListener {
 
   @Override
   public void keyReleased(KeyEvent e) {
-    int counter = 0;
       if (e.getKeyCode() == KeyEvent.VK_UP) {
         myHero.moveUp();
-        counter += 1;
+        keyeventCounter += 1;
       } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
         myHero.moveDown();
-        counter += 1;
+        keyeventCounter += 1;
       } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
         myHero.moveLeft();
-        counter += 1;
+        keyeventCounter += 1;
       } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
         myHero.moveRight();
-        counter += 1;
+        keyeventCounter += 1;
+      }
+      if (keyeventCounter % 2 == 0) {
+        skeleton.moveMonster(myHero.getPosX(), myHero.getPosY());
+        skeleton1.moveMonster(myHero.getPosX(), myHero.getPosY());
+        skeleton2.moveMonster(myHero.getPosX(), myHero.getPosY());
+        boss.moveMonster(myHero.getPosX(), myHero.getPosY());
       }
     repaint();
   }
