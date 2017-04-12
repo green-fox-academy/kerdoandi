@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.List;
-
 public class Tiles extends GameObject{
 
   public Tiles(int posX, int posY, String costume) {

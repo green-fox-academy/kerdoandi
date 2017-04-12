@@ -52,6 +52,10 @@ public class Hero extends Character {
   }
 
   public void battle(List<Monsters> matchingMonsterList) {
-
+    for (Monsters monster : matchingMonsterList) {
+      if (this.SV > monster.getDP()) {
+        monster.setCurrentHP(monster.getHP() - (this.SV - monster.getDP()));
+      }
+    }
   }
 }

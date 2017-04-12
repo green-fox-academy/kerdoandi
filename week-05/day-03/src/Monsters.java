@@ -3,6 +3,11 @@ import java.util.List;
 import java.util.Random;
 
 public class Monsters extends Character {
+  private int HP;
+  private int currentHP;
+  private int SP;
+  private int DP;
+  private int SV;
 
   public Monsters(String costume, Map map) {
     super(costume, map);
@@ -10,7 +15,6 @@ public class Monsters extends Character {
     this.posX = coordList.get(0);
     this.posY = coordList.get(1);
   }
-
 
   public List<Integer> generateRandomCoordinates() {
     List<Integer> randomCoords = new ArrayList<>();
@@ -27,7 +31,7 @@ public class Monsters extends Character {
   }
 
   public void moveMonster(int heroPosX, int heroPosY) {
-    System.out.println("posX: " + posX + " posY: " + posY + "herox: " + heroPosX + " heroY: " + heroPosY);
+    System.out.println("posX: " + posX + " posY: " + posY + " herox: " + heroPosX + " heroY: " + heroPosY);
     if (posY < 10 && heroPosY > posY) {
       if (!map.isItWall(this.posX, this.posY + 1)) {
         this.posY += 1;
@@ -51,5 +55,17 @@ public class Monsters extends Character {
         this.posX -= 1;
       }
     }
+  }
+
+  public int getDP() {
+    return DP;
+  }
+
+  public void setCurrentHP(int currentHP) {
+    this.currentHP = currentHP;
+  }
+
+  public int getHP() {
+    return HP;
   }
 }
