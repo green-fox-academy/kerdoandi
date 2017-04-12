@@ -2,11 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class Board extends JComponent implements KeyListener {
 
   int testBoxX;
   int testBoxY;
+  Map map = new Map();
+  ArrayList<GameObject> objectList = new ArrayList<>();
 
   public Board() {
     testBoxX = 300;
@@ -20,11 +23,21 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-    graphics.fillRect(testBoxX, testBoxY, 72, 72);
+//    graphics.fillRect(testBoxX, testBoxY, 72, 72);
     // here you have a 720x720 canvas
     // you can create and draw an image using the class below e.g.
-    PositionedImage image = new PositionedImage("yourimage.png", 300, 300);
-    image.draw(graphics);
+    map.addMap();
+    for (ArrayList<Tiles> tempList : map.getMap()) {
+      for(Tiles tiles : tempList) {
+        objectList.add(tiles);
+      }
+
+    }
+
+    for (GameObject objects : objectList) {
+      PositionedImage image = new PositionedImage(objects.getCostume(), objects.getPosX()*72, objects.getPosY()*72);
+      image.draw(graphics);
+    }
   }
 
   public static void main(String[] args) {
@@ -41,6 +54,11 @@ public class Board extends JComponent implements KeyListener {
     frame.addKeyListener(board);
     // Notice (at the top) that we can only do this
     // because this Board class (the type of the board object) is also a KeyListener
+
+
+
+
+
   }
 
   // To be a KeyListener the class needs to have these 3 methods in it

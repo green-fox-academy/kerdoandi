@@ -11,4 +11,16 @@ public class GameObject {
     this.posY = posY;
     this.costume = costume;
   }
+
+  public String getCostume() {
+    return costume;
+  }
+
+  public int getPosX() {
+    return posX;
+  }
+
+  public int getPosY() {
+    return posY;
+  }
 }
