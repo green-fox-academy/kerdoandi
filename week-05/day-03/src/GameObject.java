@@ -9,5 +9,6 @@ public class GameObject {
   public GameObject(int posX, int posY, String costume) {
     this.posX = posX;
     this.posY = posY;
+    this.costume = costume;
   }
 }
