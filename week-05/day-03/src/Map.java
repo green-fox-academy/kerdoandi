@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Map {
 
-  private ArrayList<ArrayList<Tiles>> map = new ArrayList<ArrayList<Tiles>>();
+  private ArrayList<ArrayList<Tiles>> map = new ArrayList<>();
   public static int[][] intMap = new int[][]{
           {0, 0, 0, 1, 0, 1, 0, 0, 0, 0,},
           {0, 0, 0, 1, 0, 1, 0, 1, 1, 0,},
@@ -39,5 +38,9 @@ public class Map {
 
   public ArrayList<ArrayList<Tiles>> getMap() {
     return map;
+  }
+
+  public boolean isItWall(int x, int y) {
+    return map.get(y).get(x).isWall();
   }
 }

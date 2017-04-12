@@ -9,7 +9,7 @@ public class Board extends JComponent implements KeyListener {
   int testBoxX;
   int testBoxY;
   Map map = new Map();
-  Hero myHero = new Hero(0,0,"pic/hero-down.png");
+  Hero myHero = new Hero(0,0,"pic/hero-down.png", map);
   ArrayList<GameObject> objectList = new ArrayList<>();
 
   public Board() {
@@ -39,7 +39,6 @@ public class Board extends JComponent implements KeyListener {
   }
 
   public static void main(String[] args) {
-    // Here is how you set up a new window and adding our board to it
     JFrame frame = new JFrame("RPG Game");
     Board board = new Board();
     frame.add(board);

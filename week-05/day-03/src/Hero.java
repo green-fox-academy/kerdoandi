@@ -1,31 +1,41 @@
-import java.awt.event.KeyEvent;
-
-/**
- * Created by Andi on 4/12/2017.
- */
 public class Hero extends GameObject {
 
-  public Hero(int posX, int posY, String costume) {
-    super(posX, posY, costume);
+  public Hero(int posX, int posY, String costume, Map map) {
+    super(posX, posY, "pic/hero-down.png", map);
   }
 
   public void moveUp() {
-    this.costume.equals("pic/hero-up.png");
-    this.posY -= 1;
+    this.costume = "pic/hero-up.png";
+    if (posY > 0) {
+      if (!map.isItWall(this.posX, this.posY + 1))
+      this.posY -= 1;
+    }
   }
 
   public void moveDown() {
-    this.costume.equals("pic/hero-down.png");
+    this.costume = "pic/hero-down.png";
+    if (posY<10) {
+      if (!map.isItWall(this.posX, this.posY + 1)) {
     this.posY += 1;
+      }
+    }
   }
 
   public void moveRight() {
-    this.costume.equals("pic/hero-right.png");
-    this.posX += 1;
+    this.costume = "pic/hero-right.png";
+    if (posX<10) {
+      if (!map.isItWall(this.posX + 1, this.posY)) {
+        this.posX += 1;
+      }
+    }
   }
 
   public void moveLeft() {
-    this.costume.equals("pic/hero-right.png");
-    this.posX -= 1;
+    this.costume = "pic/hero-left.png";
+    if (posX>0) {
+      if (!map.isItWall(this.posX - 1, this.posY)) {
+        this.posX -= 1;
+      }
+    }
   }
 }
