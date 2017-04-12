@@ -11,10 +11,10 @@ public class Board extends JComponent implements KeyListener {
   int keyeventCounter = 0;
   Map map = new Map();
   Hero myHero = new Hero(0,0,"pic/hero-down.png", map);
-  Monster skeleton = new Monster("pic/skeleton.png", map);
-  Monster skeleton1 = new Monster("pic/skeleton.png", map);
-  Monster skeleton2 = new Monster("pic/skeleton.png", map);
-  Monster boss = new Monster("pic/boss.png", map);
+  Monsters skeleton1 = new Skeleton("pic/skeleton.png", map);
+  Monsters skeleton2 = new Skeleton("pic/skeleton.png", map);
+  Monsters skeleton3 = new Skeleton("pic/skeleton.png", map);
+  Monsters boss = new Boss("pic/boss.png", map);
   ArrayList<GameObject> objectList = new ArrayList<>();
 
   public Board() {
@@ -37,9 +37,9 @@ public class Board extends JComponent implements KeyListener {
       }
     }
     objectList.add(myHero);
-    objectList.add(skeleton);
     objectList.add(skeleton1);
     objectList.add(skeleton2);
+    objectList.add(skeleton3);
     objectList.add(boss);
 
     for (GameObject objects : objectList) {
@@ -84,9 +84,9 @@ public class Board extends JComponent implements KeyListener {
         keyeventCounter += 1;
       }
       if (keyeventCounter % 2 == 0) {
-        skeleton.moveMonster(myHero.getPosX(), myHero.getPosY());
         skeleton1.moveMonster(myHero.getPosX(), myHero.getPosY());
         skeleton2.moveMonster(myHero.getPosX(), myHero.getPosY());
+        skeleton3.moveMonster(myHero.getPosX(), myHero.getPosY());
         boss.moveMonster(myHero.getPosX(), myHero.getPosY());
       }
     repaint();

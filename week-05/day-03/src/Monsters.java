@@ -2,14 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Monster extends GameObject {
+public class Monsters extends GameObject {
+  int level;
 
-  public Monster(String costume, Map map) {
+  public Monsters(String costume, Map map) {
     super(costume, map);
     List<Integer> coordList = generateRandomCoordinates();
     this.posX = coordList.get(0);
     this.posY = coordList.get(1);
+    this.level = 1;
   }
+
 
   public List<Integer> generateRandomCoordinates() {
     List<Integer> randomCoords = new ArrayList<>();
