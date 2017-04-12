@@ -23,16 +23,15 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-//    graphics.fillRect(testBoxX, testBoxY, 72, 72);
-    // here you have a 720x720 canvas
-    // you can create and draw an image using the class below e.g.
+
+
     map.addMap();
     for (ArrayList<Tiles> tempList : map.getMap()) {
       for(Tiles tiles : tempList) {
         objectList.add(tiles);
       }
-
     }
+
 
     for (GameObject objects : objectList) {
       PositionedImage image = new PositionedImage(objects.getCostume(), objects.getPosX()*72, objects.getPosY()*72);

@@ -10,12 +10,12 @@ public class Map {
           {0, 1, 1, 1, 0, 1, 0, 1, 1, 0,},
           {0, 0, 0, 0, 0, 1, 0, 0, 0, 0,},
           {1, 1, 1, 1, 0, 1, 1, 1, 1, 0,},
-          {0, 0, 0, 1, 0, 1, 0, 0, 0, 0,},
-          {0, 0, 0, 1, 0, 1, 0, 1, 1, 0,},
-          {0, 1, 1, 1, 0, 1, 0, 1, 1, 0,},
-          {0, 0, 0, 0, 0, 1, 0, 0, 0, 0,},
-          {1, 1, 1, 1, 0, 1, 1, 1, 1, 0,},
-          {1, 1, 1, 1, 0, 1, 1, 1, 1, 0,}
+          {1, 0, 1, 0, 1, 1, 1, 1, 0, 1,},
+          {1, 0, 1, 0, 1, 0, 0, 1, 0, 1,},
+          {1, 1, 1, 1, 1, 0, 0, 1, 0, 1,},
+          {1, 0, 0, 0, 1, 1, 1, 1, 0, 1,},
+          {1, 1, 1, 0, 1, 0, 0, 1, 0, 1,},
+          {1, 0, 1, 0, 1, 0, 1, 1, 1, 1,}
   };
 
   public Map() {
@@ -26,10 +26,10 @@ public class Map {
       ArrayList<Tiles> lines = new ArrayList<>();
       for (int j = 0; j < 10; j++) {
         if (intMap[i][j] == 0) {
-          Tiles floor = new Tiles(i, j, "pic/floor.png");
+          Tiles floor = new Tiles(j, i, "pic/floor.png");
           lines.add(floor);
         } else {
-          Tiles wall = new Tiles(i, j, "pic/wall.png");
+          Tiles wall = new Tiles(j, i, "pic/wall.png");
           lines.add(wall);
         }
       }
