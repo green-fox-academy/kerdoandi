@@ -11,6 +11,9 @@ public class Board extends JComponent implements KeyListener {
   Map map = new Map();
   Hero myHero = new Hero(0,0,"pic/hero-down.png", map);
   Monster skeleton = new Monster("pic/skeleton.png", map);
+  Monster skeleton1 = new Monster("pic/skeleton.png", map);
+  Monster skeleton2 = new Monster("pic/skeleton.png", map);
+  Monster boss = new Monster("pic/boss.png", map);
   ArrayList<GameObject> objectList = new ArrayList<>();
 
   public Board() {
@@ -33,6 +36,9 @@ public class Board extends JComponent implements KeyListener {
     }
     objectList.add(myHero);
     objectList.add(skeleton);
+    objectList.add(skeleton1);
+    objectList.add(skeleton2);
+    objectList.add(boss);
 
     for (GameObject objects : objectList) {
       PositionedImage image = new PositionedImage(objects.getCostume(), objects.getPosX()*72, objects.getPosY()*72);
