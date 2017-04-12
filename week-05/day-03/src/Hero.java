@@ -1,4 +1,4 @@
-public class Hero extends GameObject {
+public class Hero extends Character {
   private int HP;
   private int currentHP;
   private int SP;
@@ -7,10 +7,9 @@ public class Hero extends GameObject {
 
   public Hero(int posX, int posY, String costume, Map map) {
     super(posX, posY, costume, map);
-    int randomNr = (int) (Math.random() * 6) + 1;
-    this.HP = 20 + 3 * randomNr;
-    this.SP = 5 + randomNr;
-    this.DP = 2 * randomNr;
+    this.HP = 20 + 3 * randomNumber;
+    this.SP = 5 + randomNumber;
+    this.DP = 2 * randomNumber;
   }
 
   public void moveUp() {
