@@ -9,6 +9,7 @@ public class Board extends JComponent implements KeyListener {
   int testBoxX;
   int testBoxY;
   Map map = new Map();
+  Hero myHero = new Hero(0,0,"pic/hero-down.png");
   ArrayList<GameObject> objectList = new ArrayList<>();
 
   public Board() {
@@ -23,15 +24,13 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-
-
     map.addMap();
     for (ArrayList<Tiles> tempList : map.getMap()) {
       for(Tiles tiles : tempList) {
         objectList.add(tiles);
       }
     }
-
+    objectList.add(myHero);
 
     for (GameObject objects : objectList) {
       PositionedImage image = new PositionedImage(objects.getCostume(), objects.getPosX()*72, objects.getPosY()*72);
@@ -47,20 +46,9 @@ public class Board extends JComponent implements KeyListener {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setVisible(true);
     frame.pack();
-    // Here is how you can add a key event listener
-    // The board object will be notified when hitting any key
-    // with the system calling one of the below 3 methods
     frame.addKeyListener(board);
-    // Notice (at the top) that we can only do this
-    // because this Board class (the type of the board object) is also a KeyListener
-
-
-
-
-
   }
 
-  // To be a KeyListener the class needs to have these 3 methods in it
   @Override
   public void keyTyped(KeyEvent e) {
 
@@ -71,16 +59,17 @@ public class Board extends JComponent implements KeyListener {
 
   }
 
-  // But actually we can use just this one for our goals here
   @Override
   public void keyReleased(KeyEvent e) {
-    // When the up or down keys hit, we change the position of our box
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      testBoxY -= 100;
+      myHero.moveUp();
     } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-      testBoxY += 100;
+      myHero.moveDown();
+    } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+      myHero.moveLeft();
+    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+      myHero.moveRight();
     }
-    // and redraw to have a new picture with the new coordinates
     repaint();
   }
 }

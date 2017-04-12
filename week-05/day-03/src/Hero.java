@@ -9,23 +9,23 @@ public class Hero extends GameObject {
     super(posX, posY, costume);
   }
 
-  public void moveUp(KeyEvent e) {
-    this.costume.equals("pic/hero-up");
-    this.posY -= 72;
+  public void moveUp() {
+    this.costume.equals("pic/hero-up.png");
+    this.posY -= 1;
   }
 
-  public void moveDown(KeyEvent e) {
-    this.costume.equals("pic/hero-down");
-    this.posY += 72;
+  public void moveDown() {
+    this.costume.equals("pic/hero-down.png");
+    this.posY += 1;
   }
 
-  public void moveRight(KeyEvent e) {
-    this.costume.equals("pic/hero-right");
-    this.posX += 72;
+  public void moveRight() {
+    this.costume.equals("pic/hero-right.png");
+    this.posX += 1;
   }
 
-  public void moveLeft(KeyEvent e) {
-    this.costume.equals("pic/hero-right");
-    this.posX -= 72;
+  public void moveLeft() {
+    this.costume.equals("pic/hero-right.png");
+    this.posX -= 1;
   }
 }
