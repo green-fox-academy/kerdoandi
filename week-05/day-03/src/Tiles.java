@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.List;
 
 public class Tiles extends GameObject{
 
@@ -18,5 +20,11 @@ public class Tiles extends GameObject{
     return this.costume.equals("pic/floor.png");
   }
 
-
+  public HashMap<Integer, Integer> getWallCoord() {
+    HashMap<Integer, Integer> wallCoordinates = new HashMap<>();
+    if(!this.isClear()) {
+      wallCoordinates.put(posX, posY);
+    }
+    return wallCoordinates;
+  }
 }

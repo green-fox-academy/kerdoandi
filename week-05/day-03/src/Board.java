@@ -10,11 +10,12 @@ public class Board extends JComponent implements KeyListener {
   int testBoxY;
   Map map = new Map();
   Hero myHero = new Hero(0,0,"pic/hero-down.png", map);
+  Monster skeleton = new Monster("pic/skeleton.png", map);
   ArrayList<GameObject> objectList = new ArrayList<>();
 
   public Board() {
-    testBoxX = 300;
-    testBoxY = 300;
+    testBoxX = 0;
+    testBoxY = 0;
 
     // set the size of your draw board
     setPreferredSize(new Dimension(720, 800));
@@ -24,13 +25,14 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-    map.addMap();
+
     for (ArrayList<Tiles> tempList : map.getMap()) {
       for(Tiles tiles : tempList) {
         objectList.add(tiles);
       }
     }
     objectList.add(myHero);
+    objectList.add(skeleton);
 
     for (GameObject objects : objectList) {
       PositionedImage image = new PositionedImage(objects.getCostume(), objects.getPosX()*72, objects.getPosY()*72);

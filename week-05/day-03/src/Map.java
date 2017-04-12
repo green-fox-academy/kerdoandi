@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Map {
 
@@ -18,6 +19,7 @@ public class Map {
   };
 
   public Map() {
+    addMap();
   }
 
   public void addMap() {

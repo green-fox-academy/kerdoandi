@@ -20,8 +20,12 @@ public class GameObject {
     this.map = map;
   }
 
-  public GameObject() {
+  public GameObject(String costume, Map map) {
+    this.costume = costume;
+    this.map = map;
+  }
 
+  public GameObject() {
   }
 
   public String getCostume() {
