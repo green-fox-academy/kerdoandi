@@ -1,8 +1,11 @@
+import java.util.List;
+
 public class Hero extends Character {
   private int HP;
   private int currentHP;
   private int SP;
   private int DP;
+  private int SV;
 
 
   public Hero(int posX, int posY, String costume, Map map) {
@@ -10,6 +13,7 @@ public class Hero extends Character {
     this.HP = 20 + 3 * randomNumber;
     this.SP = 5 + randomNumber;
     this.DP = 2 * randomNumber;
+    this.SV = 2 * randomNumber + SP;
   }
 
   public void moveUp() {
@@ -45,5 +49,9 @@ public class Hero extends Character {
         this.posX -= 1;
       }
     }
+  }
+
+  public void battle(List<Monsters> matchingMonsterList) {
+
   }
 }

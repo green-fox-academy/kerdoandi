@@ -2,9 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.List;
 
-public class Board extends JComponent implements KeyListener {
+public class GameEngine extends JComponent implements KeyListener {
 
   int testBoxX;
   int testBoxY;
@@ -16,10 +17,17 @@ public class Board extends JComponent implements KeyListener {
   Monsters skeleton3 = new Skeleton("pic/skeleton.png", map);
   Monsters boss = new Boss("pic/boss.png", map);
   ArrayList<GameObject> objectList = new ArrayList<>();
+  java.util.List<Monsters> listOfMonsters;
 
-  public Board() {
+
+  public GameEngine() {
     testBoxX = 0;
     testBoxY = 0;
+    java.util.List<Monsters> listOfMonsters = new ArrayList<>();
+    listOfMonsters.add(skeleton1);
+    listOfMonsters.add(skeleton2);
+    listOfMonsters.add(skeleton3);
+    listOfMonsters.add(boss);
 
 
     // set the size of your draw board
@@ -50,7 +58,7 @@ public class Board extends JComponent implements KeyListener {
 
   public static void main(String[] args) {
     JFrame frame = new JFrame("RPG Game");
-    Board board = new Board();
+    GameEngine board = new GameEngine();
     frame.add(board);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setVisible(true);
@@ -82,7 +90,16 @@ public class Board extends JComponent implements KeyListener {
       } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
         myHero.moveRight();
         keyeventCounter += 1;
+      } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+        List<Monsters> matchingCoordMonsters= new ArrayList<>();
+        for (Monsters monster : getListOfMonsters()) {
+          if (monster.getPosX() == myHero.getPosX() && monster.getPosY() == myHero.getPosY()) {
+            matchingCoordMonsters.add(monster);
+          }
+        }
+        myHero.battle(matchingCoordMonsters);
       }
+
       if (keyeventCounter % 2 == 0) {
         skeleton1.moveMonster(myHero.getPosX(), myHero.getPosY());
         skeleton2.moveMonster(myHero.getPosX(), myHero.getPosY());
@@ -90,5 +107,9 @@ public class Board extends JComponent implements KeyListener {
         boss.moveMonster(myHero.getPosX(), myHero.getPosY());
       }
     repaint();
+  }
+
+  public List<Monsters> getListOfMonsters() {
+    return listOfMonsters;
   }
 }
