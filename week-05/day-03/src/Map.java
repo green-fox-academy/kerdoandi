@@ -21,7 +21,7 @@ public class Map {
     addMap();
   }
 
-  public void addMap() {
+  private void addMap() {
     for (int i = 0; i < 11; i++) {
       ArrayList<Tiles> lines = new ArrayList<>();
       for (int j = 0; j < 10; j++) {
@@ -41,7 +41,7 @@ public class Map {
     return map;
   }
 
-  public boolean isItWall(int x, int y) {
+  boolean isItWall(int x, int y) {
     return map.get(y).get(x).isWall();
   }
 }

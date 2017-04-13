@@ -6,7 +6,7 @@ public class Character extends GameObject {
   int randomNumber;
   int level;
 
-  public Character(String costume, Map map) {
+  Character(String costume, Map map) {
     super(costume, map);
     List<Integer> coordList = generateRandomCoordinates();
     this.posX = coordList.get(0);
@@ -15,7 +15,7 @@ public class Character extends GameObject {
     level = 3;
   }
 
-  public List<Integer> generateRandomCoordinates() {
+  private List<Integer> generateRandomCoordinates() {
     List<Integer> randomCoords = new ArrayList<>();
     Random random = new Random();
     int x = 3;

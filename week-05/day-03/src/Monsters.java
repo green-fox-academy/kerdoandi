@@ -11,8 +11,7 @@ public class Monsters extends Character {
     super(costume, map);
   }
 
-  public void moveMonster(int heroPosX, int heroPosY) {
-    System.out.println("posX: " + posX + " posY: " + posY + " heroX: " + heroPosX + " heroY: " + heroPosY);
+  void moveMonster(int heroPosX, int heroPosY) {
     Random random = new Random();
     int r = random.nextInt(2);
     if (r == 0 && posY < 10 && heroPosY > posY) {
@@ -20,19 +19,16 @@ public class Monsters extends Character {
         this.posY += 1;
       }
     }
-
     if (r == 0 && posY < 10 && heroPosY < posY) {
       if (!map.isItWall(this.posX, this.posY + 1)) {
         this.posY -= 1;
       }
     }
-
     if (r == 1 && posX < 9 && heroPosX > posX) {
       if (!map.isItWall(this.posX + 1, this.posY)) {
         this.posX += 1;
       }
     }
-
     if (r == 1 && posX > 0 && heroPosX < posX) {
       if (!map.isItWall(this.posX - 1, this.posY)) {
         this.posX -= 1;

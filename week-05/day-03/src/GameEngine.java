@@ -89,7 +89,6 @@ public class GameEngine extends JComponent implements KeyListener {
         myHero.moveRight();
         keyeventCounter += 1;
       }
-
       if (keyeventCounter % 2 == 0) {
         skeleton1.moveMonster(myHero.getPosX(), myHero.getPosY());
         skeleton2.moveMonster(myHero.getPosX(), myHero.getPosY());
@@ -104,8 +103,8 @@ public class GameEngine extends JComponent implements KeyListener {
             matchingCoordMonsters.add(monster);
           }
         }
-        myHero.battle(matchingCoordMonsters);
-      }
+       myHero.battle(matchingCoordMonsters);
+     }
     repaint();
   }
 

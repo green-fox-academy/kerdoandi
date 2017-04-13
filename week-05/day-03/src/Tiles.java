@@ -13,7 +13,7 @@ public class Tiles extends GameObject{
     return this.costume.equals("pic/wall.png");
   }
 
-  public boolean isClear() {
-    return this.costume.equals("pic/floor.png");
+    public boolean isClear() {
+      return this.costume.equals("pic/floor.png");
+    }
   }
-}
