@@ -12,7 +12,7 @@ public class Character extends GameObject {
     this.posX = coordList.get(0);
     this.posY = coordList.get(1);
     randomNumber = (int) (Math.random() * 6) + 1;
-    level = 1;
+    level = 3;
   }
 
   public List<Integer> generateRandomCoordinates() {

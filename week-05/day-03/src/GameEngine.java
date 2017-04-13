@@ -29,8 +29,6 @@ public class GameEngine extends JComponent implements KeyListener {
     listOfMonsters.add(skeleton3);
     listOfMonsters.add(boss);
 
-
-    // set the size of your draw board
     setPreferredSize(new Dimension(720, 800));
     setVisible(true);
   }

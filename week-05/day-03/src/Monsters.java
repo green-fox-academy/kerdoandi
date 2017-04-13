@@ -55,4 +55,8 @@ public class Monsters extends Character {
   public void setCurrentHP(Hero hero) {
     this.currentHP = this.getHP() - (hero.getSV() - this.getDP());
   }
+
+  public int getCurrentHP() {
+    return currentHP;
+  }
 }

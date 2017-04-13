@@ -80,7 +80,7 @@ public class Hero extends Character {
       if (monster.getSV() > this.getDP()) {
         this.setCurrentHP(monster);
       }
-      System.out.println("hero currentHP: " + this.getCurrentHP() + "hero HP: " + this.getHP() + "monster HP: " + monster.getHP());
+      System.out.println("randomnr: " + randomNumber + "hero currentHP: " + this.getCurrentHP() + "hero HP: " + this.getHP() + "monster HP: " + monster.getHP() + "monster CHP: " + monster.getCurrentHP());
     }
   }
 }

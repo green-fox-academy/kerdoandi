@@ -13,4 +13,24 @@ public class Boss extends Monsters{
     this.SV = 2 * randomNumber + SP;
     this.currentHP = HP;
   }
+
+  public int getDP() {
+    return DP;
+  }
+
+  public int getHP() {
+    return HP;
+  }
+
+  public int getSV() {
+    return SV;
+  }
+
+  public void setCurrentHP(Hero hero) {
+    this.currentHP = this.getHP() - (hero.getSV() - this.getDP());
+  }
+
+  public int getCurrentHP() {
+    return currentHP;
+  }
 }
