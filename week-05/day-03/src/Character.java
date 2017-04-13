@@ -6,7 +6,6 @@ public class Character extends GameObject {
   int randomNumber;
   int level;
 
-
   public Character(String costume, Map map) {
     super(costume, map);
     List<Integer> coordList = generateRandomCoordinates();

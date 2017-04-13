@@ -11,5 +11,6 @@ public class Boss extends Monsters{
     this.SP = level * randomNumber + randomNumber;
     this.DP = level / 2 * randomNumber + randomNumber / 2;
     this.SV = 2 * randomNumber + SP;
+    this.currentHP = HP;
   }
 }

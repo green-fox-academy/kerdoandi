@@ -11,5 +11,6 @@ public class Skeleton extends Monsters {
     this.SP = level * randomNumber;
     this.DP = level / 2 * randomNumber;
     this.SV = 2 * randomNumber + SP;
+    this.currentHP = HP;
   }
 }

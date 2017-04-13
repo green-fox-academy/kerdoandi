@@ -10,13 +10,6 @@ public class GameObject {
     this.costume = costume;
   }
 
-  public GameObject(int posX, int posY, String costume, Map map) {
-    this.posX = posX;
-    this.posY = posY;
-    this.costume = costume;
-    this.map = map;
-  }
-
   public GameObject(String costume, Map map) {
     this.costume = costume;
     this.map = map;

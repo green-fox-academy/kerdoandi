@@ -14,6 +14,7 @@ public class Hero extends Character {
     this.SP = 5 + randomNumber;
     this.DP = 2 * randomNumber;
     this.SV = 2 * randomNumber + SP;
+    this.currentHP = HP;
   }
 
   public void moveUp() {
@@ -51,10 +52,29 @@ public class Hero extends Character {
     }
   }
 
+  public void setCurrentHP(Monsters monster) {
+    this.currentHP = this.getHP() - (monster.getSV() - this.getDP());
+  }
+
+  public int getHP() {
+    return this.HP;
+  }
+
+  public int getDP() {
+    return this.DP;
+  }
+
+  public int getSV() {
+    return this.SV;
+  }
+
   public void battle(List<Monsters> matchingMonsterList) {
     for (Monsters monster : matchingMonsterList) {
       if (this.SV > monster.getDP()) {
-        monster.setCurrentHP(monster.getHP() - (this.SV - monster.getDP()));
+        monster.setCurrentHP(this);
+      }
+      if (monster.getSV() > this.getDP()) {
+        this.setCurrentHP(monster);
       }
     }
   }
