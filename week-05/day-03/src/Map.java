@@ -1,8 +1,7 @@
+
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Map {
-
   private ArrayList<ArrayList<Tiles>> map = new ArrayList<>();
   public static int[][] intMap = new int[][]{
           {0, 0, 0, 1, 0, 1, 0, 0, 0, 0},

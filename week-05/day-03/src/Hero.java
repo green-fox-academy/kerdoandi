@@ -8,8 +8,8 @@ public class Hero extends Character {
   private int SV;
 
 
-  public Hero(int posX, int posY, String costume, Map map) {
-    super(posX, posY, costume, map);
+  public Hero(String costume, Map map) {
+    super(costume, map);
     this.HP = 20 + 3 * randomNumber;
     this.SP = 5 + randomNumber;
     this.DP = 2 * randomNumber;
@@ -20,7 +20,7 @@ public class Hero extends Character {
     this.costume = "pic/hero-up.png";
     if (posY > 0) {
       if (!map.isItWall(this.posX, this.posY - 1))
-      this.posY -= 1;
+        this.posY -= 1;
     }
   }
 

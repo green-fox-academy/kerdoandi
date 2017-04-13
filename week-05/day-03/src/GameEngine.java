@@ -11,7 +11,7 @@ public class GameEngine extends JComponent implements KeyListener {
   int testBoxY;
   int keyeventCounter = 0;
   Map map = new Map();
-  Hero myHero = new Hero(0,0,"pic/hero-down.png", map);
+  Hero myHero = new Hero("pic/hero-down.png", map);
   Monsters skeleton1 = new Skeleton("pic/skeleton.png", map);
   Monsters skeleton2 = new Skeleton("pic/skeleton.png", map);
   Monsters skeleton3 = new Skeleton("pic/skeleton.png", map);
