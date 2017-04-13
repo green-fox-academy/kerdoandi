@@ -16,14 +16,14 @@ public class GameEngine extends JComponent implements KeyListener {
   Monsters skeleton2 = new Skeleton("pic/skeleton.png", map);
   Monsters skeleton3 = new Skeleton("pic/skeleton.png", map);
   Monsters boss = new Boss("pic/boss.png", map);
-  ArrayList<GameObject> objectList = new ArrayList<>();
-  java.util.List<Monsters> listOfMonsters;
+  List<GameObject> objectList = new ArrayList<>();
+  public List<Monsters> listOfMonsters;
 
 
   public GameEngine() {
     testBoxX = 0;
     testBoxY = 0;
-    java.util.List<Monsters> listOfMonsters = new ArrayList<>();
+    listOfMonsters = new ArrayList<>();
     listOfMonsters.add(skeleton1);
     listOfMonsters.add(skeleton2);
     listOfMonsters.add(skeleton3);
@@ -90,14 +90,6 @@ public class GameEngine extends JComponent implements KeyListener {
       } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
         myHero.moveRight();
         keyeventCounter += 1;
-      } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-        List<Monsters> matchingCoordMonsters= new ArrayList<>();
-        for (Monsters monster : getListOfMonsters()) {
-          if (monster.getPosX() == myHero.getPosX() && monster.getPosY() == myHero.getPosY()) {
-            matchingCoordMonsters.add(monster);
-          }
-        }
-        myHero.battle(matchingCoordMonsters);
       }
 
       if (keyeventCounter % 2 == 0) {
@@ -105,6 +97,16 @@ public class GameEngine extends JComponent implements KeyListener {
         skeleton2.moveMonster(myHero.getPosX(), myHero.getPosY());
         skeleton3.moveMonster(myHero.getPosX(), myHero.getPosY());
         boss.moveMonster(myHero.getPosX(), myHero.getPosY());
+      }
+
+     if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+        List<Monsters> matchingCoordMonsters= new ArrayList<>();
+        for (Monsters monster : listOfMonsters) {
+          if (monster.getPosX() == myHero.getPosX() && monster.getPosY() == myHero.getPosY()) {
+            matchingCoordMonsters.add(monster);
+          }
+        }
+        myHero.battle(matchingCoordMonsters);
       }
     repaint();
   }

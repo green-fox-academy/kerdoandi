@@ -56,6 +56,10 @@ public class Hero extends Character {
     this.currentHP = this.getHP() - (monster.getSV() - this.getDP());
   }
 
+  public int getCurrentHP() {
+    return this.currentHP;
+  }
+
   public int getHP() {
     return this.HP;
   }
@@ -76,6 +80,7 @@ public class Hero extends Character {
       if (monster.getSV() > this.getDP()) {
         this.setCurrentHP(monster);
       }
+      System.out.println("hero currentHP: " + this.getCurrentHP() + "hero HP: " + this.getHP() + "monster HP: " + monster.getHP());
     }
   }
 }
