@@ -16,7 +16,7 @@ public class Monsters extends Character {
       }
     }
     if (r == 0 && posY < 10 && heroPosY < posY) {
-      if (!map.isItWall(this.posX, this.posY + 1)) {
+      if (!map.isItWall(this.posX, this.posY - 1)) {
         this.posY -= 1;
       }
     }
