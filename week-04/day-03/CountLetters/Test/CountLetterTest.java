@@ -14,10 +14,11 @@ public class CountLetterTest {
     CountLetter text = new CountLetter("asdfasd");
 
     Map<String, Integer> x = new HashMap<>();
-    x.put("a", 2);
+
     x.put("s", 2);
-    x.put("d", 2);
     x.put("f", 1);
+    x.put("d", 2);
+    x.put("a", 2);
 
     assertEquals(x, text.countLetter());
   }
