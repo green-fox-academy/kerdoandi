@@ -1,20 +1,11 @@
+import java.awt.*;
 import java.util.List;
 
 public class Hero extends Character {
-  private int HP;
-  private int currentHP;
-  private int SP;
-  private int DP;
-  private int SV;
+  public static final String DEFAULT_COSTUME = "pic/hero-down.png";
 
-
-  public Hero(String costume, Map map) {
-    super(costume, map);
-    this.HP = 20 + 3 * randomNumber;
-    this.SP = 5 + randomNumber;
-    this.DP = 2 * randomNumber;
-    this.SV = 2 * randomNumber + SP;
-    this.currentHP = HP;
+  public Hero(Map map) {
+    super(DEFAULT_COSTUME, map, 20 + 3 * randomNumber, 20 + 3 * randomNumber,5 + randomNumber, 2 * randomNumber, 2 * randomNumber + (5 + randomNumber));
   }
 
   public void moveUp() {

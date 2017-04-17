@@ -1,17 +1,8 @@
 public class Boss extends Monsters{
-  private int HP;
-  private int currentHP;
-  private int SP;
-  private int DP;
-  private int SV;
+  public static final String DEFAULT_COSTUME = "pic/boss.png";
 
-  public Boss(String costume, Map map) {
-    super(costume, map);
-    this.HP = 2 * level* randomNumber + randomNumber;
-    this.SP = level * randomNumber + randomNumber;
-    this.DP = level / 2 * randomNumber + randomNumber / 2;
-    this.SV = 2 * randomNumber + SP;
-    this.currentHP = HP;
+  public Boss(Map map) {
+    super(DEFAULT_COSTUME, map, 2 * level* randomNumber + randomNumber, 2 * level* randomNumber + randomNumber, level * randomNumber + randomNumber, level / 2 * randomNumber + randomNumber / 2, 2 * randomNumber + (level * randomNumber + randomNumber));
   }
 
   public int getDP() {

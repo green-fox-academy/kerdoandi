@@ -1,18 +1,17 @@
 public class Skeleton extends Monsters {
-  private int HP;
-  private int currentHP;
-  private int SP;
-  private int DP;
-  private int SV;
+  public static final String DEFAULT_COSTUME = "pic/skeleton.png";
+  boolean hasKey;
 
-  public Skeleton(String costume, Map map) {
-    super(costume, map);
-    this.HP = 2 * level * randomNumber;
-    this.SP = level * randomNumber;
-    this.DP = level / 2 * randomNumber;
-    this.SV = 2 * randomNumber + SP;
-    this.currentHP = HP;
+  public Skeleton(Map map, boolean hasKey) {
+    super(DEFAULT_COSTUME, map, 2 * level * randomNumber, 2 * level * randomNumber, level * randomNumber, level / 2 * randomNumber, 2 * randomNumber + level * randomNumber);
+    this.hasKey = hasKey;
   }
+
+
+  public Skeleton(Map map) {
+    this(map, false);
+  }
+
 
   public int getDP() {
     return DP;

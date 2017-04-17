@@ -1,14 +1,10 @@
 import java.util.Random;
 
 public class Monsters extends Character {
-  private int HP;
-  private int currentHP;
-  private int SP;
-  private int DP;
-  private int SV;
 
-  public Monsters(String costume, Map map) {
-    super(costume, map);
+
+  public Monsters(String costume, Map map, int HP,int currentHP, int SP, int DP, int SV) {
+    super(costume, map, HP, currentHP, SP, DP, SV);
   }
 
   void moveMonster(int heroPosX, int heroPosY) {

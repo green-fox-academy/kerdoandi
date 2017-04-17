@@ -3,16 +3,25 @@ import java.util.List;
 import java.util.Random;
 
 public class Character extends GameObject {
-  int randomNumber;
-  int level;
+  public static int randomNumber = (int) (Math.random() * 6) + 1;
+  public static int level = 3;
+  int HP;
+  int currentHP;
+  int SP;
+  int DP;
+  int SV;
 
-  Character(String costume, Map map) {
+
+  Character(String costume, Map map, int HP,int currentHP, int SP, int DP, int SV) {
     super(costume, map);
     List<Integer> coordList = generateRandomCoordinates();
     this.posX = coordList.get(0);
     this.posY = coordList.get(1);
-    randomNumber = (int) (Math.random() * 6) + 1;
-    level = 3;
+    this.HP = HP;
+    this.currentHP =currentHP;
+    this.SP = SP;
+    this.DP = DP;
+    this.SV = SV;
   }
 
   private List<Integer> generateRandomCoordinates() {

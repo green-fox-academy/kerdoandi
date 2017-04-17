@@ -11,11 +11,11 @@ public class GameEngine extends JComponent implements KeyListener {
   int testBoxY;
   int keyeventCounter = 0;
   Map map = new Map();
-  Hero myHero = new Hero("pic/hero-down.png", map);
-  Monsters skeleton1 = new Skeleton("pic/skeleton.png", map);
-  Monsters skeleton2 = new Skeleton("pic/skeleton.png", map);
-  Monsters skeleton3 = new Skeleton("pic/skeleton.png", map);
-  Monsters boss = new Boss("pic/boss.png", map);
+  Hero myHero = new Hero(map);
+  Monsters skeleton1 = new Skeleton(map, true);
+  Monsters skeleton2 = new Skeleton(map);
+  Monsters skeleton3 = new Skeleton(map);
+  Monsters boss = new Boss(map);
   List<GameObject> objectList = new ArrayList<>();
   public List<Monsters> listOfMonsters;
 
