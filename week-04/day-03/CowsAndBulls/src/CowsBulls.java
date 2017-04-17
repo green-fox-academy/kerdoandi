@@ -1,19 +1,21 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class CowsBulls {
-
-  List<String> list = new ArrayList<>();
   Random rand = new Random();
-
   int randomNumber;
   String state;
   int counter;
   int bulls;
   int cows;
   String status;
+
+  public CowsBulls() {
+    randomNumber = rand.nextInt(9999) + 1000;
+    state = "playing";
+    counter = 0;
+    bulls = 0;
+    cows = 0;
+  }
 
   public int getBulls() {
     return bulls;
@@ -23,13 +25,7 @@ public class CowsBulls {
     return cows;
   }
 
-  public CowsBulls() {
-    randomNumber = rand.nextInt(9999) + 1000;
-    state = "playing";
-    counter = 0;
-    bulls = 0;
-    cows = 0;
-  }
+
 
   public List<Integer> convertNumToList(int number) {
     String temp = Integer.toString(number);
@@ -48,6 +44,8 @@ public class CowsBulls {
   public String returnToGuess() {
     List<Integer> guessList = new ArrayList<>();
     List<Integer> randomList = new ArrayList<>();
+    bulls = 0;
+    cows = 0;
     randomList = convertNumToList(this.randomNumber);
 
     Scanner input = new Scanner(System.in);
@@ -57,30 +55,30 @@ public class CowsBulls {
     guessList = convertNumToList(i);
 
     if (cows == 4) {
+      counter++;
       return status;
-
     } else {
-
+      int temp1 = 0;
       for (int j = 0; j < guessList.size(); j++) {
-        int temp1 = 0;
-        if (guessList.get(j) == randomList.get(j)) {
+        if ((guessList.get(j).equals(randomList.get(j)))) {
           temp1++;
           state = "playing";
-          counter++;
-          cows = temp1;
         }
       }
+      counter++;
+      cows = temp1;
 
+      int temp2 = 0;
       for (int m = 0; m < guessList.size(); m++) {
-        int temp2 = 0;
         if (randomList.contains(guessList.get(m)) && guessList.get(m) != randomList.get(m)) {
           temp2++;
           state = "playing";
-          counter++;
-          bulls = temp2;
         }
       }
-      System.out.println(status = "Cows: " + cows + ", Bulls: " + bulls);
+      counter++;
+      bulls = temp2;
+
+      System.out.println(status = "Cows: " + cows + ", Bulls: " + bulls + ", counter: " + counter);
       return status + returnToGuess();
     }
   }
