@@ -63,4 +63,9 @@ public class Pirates {
   public boolean isAlive() {
     return isAlive;
   }
+
+  @Override
+  public String toString() {
+    return name;
+  }
 }
