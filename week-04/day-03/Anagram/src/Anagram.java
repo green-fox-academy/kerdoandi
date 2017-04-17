@@ -25,8 +25,7 @@ public class Anagram {
 
   public static void main(String[] args) {
     Anagram anagram = new Anagram("Alma", "mala");
-
-
+    System.out.println(anagram.isAnagram());
   }
 }
 
