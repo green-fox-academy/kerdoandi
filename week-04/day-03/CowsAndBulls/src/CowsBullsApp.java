@@ -3,11 +3,10 @@
  */
 public class CowsBullsApp {
   public static void main(String[] args) {
-    CowsBulls game = new CowsBulls();
+    CowsAndBulls game = new CowsAndBulls();
 
     System.out.println(game.randomNumber);
-    System.out.println(game.returnToGuess());
-
-
+    while (!game.returnToGuess()){
+    }
   }
 }
