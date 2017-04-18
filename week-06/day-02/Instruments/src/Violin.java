@@ -1,7 +1,7 @@
 public class Violin extends StringedInstrument{
 
   public Violin() {
-    super("violin", 4, "screeches");
+    super("violin", "screeches", 4);
   }
 
   @Override
