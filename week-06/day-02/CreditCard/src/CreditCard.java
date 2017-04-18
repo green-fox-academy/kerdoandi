@@ -1,9 +1,10 @@
 import java.util.Random;
 
-public class CreditCard implements CreditCardy{
+public class CreditCard implements CreditCardy {
   String name;
   String CC;
   int CVV;
+  static int cardHolderID = 0;
 
   public CreditCard() {
     generateCardHolderName();
@@ -11,11 +12,7 @@ public class CreditCard implements CreditCardy{
   }
 
   void generateCardHolderName() {
-    int number = 0;
-    for (int i = 0; i < 5000; i++) {
-      number = i;
-      this.name = "ABC".concat(String.valueOf(number));
-    }
+    this.name = "ABC".concat(String.valueOf(cardHolderID++));
   }
 
   void generateCCandCVV() {
@@ -30,7 +27,7 @@ public class CreditCard implements CreditCardy{
 
     this.CVV = 0;
     for (int j = 0; j < CCnumber.length; j++) {
-      this.CVV = this.CVV + CCnumber[j];
+      this.CVV = this.CVV + Integer.parseInt(String.valueOf(CCnumber[j]));
     }
   }
 
@@ -56,7 +53,7 @@ public class CreditCard implements CreditCardy{
 
   @Override
   public String toString() {
-    String tempformat = String.format("Name=%s CC#=%s CVV=%d",getNameCardholder(), getCodeAccount(), getSumCVV());
+    String tempformat = String.format("Name=%s CC#=%s CVV=%d", getNameCardholder(), getCodeAccount(), getSumCVV());
     return tempformat + " (validated)";
   }
 }
