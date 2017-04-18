@@ -1,6 +1,10 @@
 public class ElectricGuitar extends StringedInstrument {
+  public ElectricGuitar(int nrOfStrings) {
+    super("electric guitar", "twang", nrOfStrings);
+  }
+
   public ElectricGuitar() {
-    super("electric guitar", "twang", 6);
+    this(6);
   }
 
   @Override
