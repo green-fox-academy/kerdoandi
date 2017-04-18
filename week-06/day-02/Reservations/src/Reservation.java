@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Reservation implements Reservationy {
@@ -9,32 +7,42 @@ public class Reservation implements Reservationy {
 
   public Reservation() {
     generateBookingNumber();
+    generateDayOfWeek();
   }
 
-  public void generateBookingNumber() {
+  void generateBookingNumber() {
     char[] alphabet = "0123456789abcdefghijklmnopqrstuvwxyz".toCharArray();
-    List<Character> bookingNumber = new ArrayList<>();
+    char[] bookingNumber = new char[8];
     Random random = new Random();
     for (int i = 0; i < 8; i++) {
       int index = random.nextInt(36);
-      bookingNumber.add(alphabet[index]);
+      bookingNumber[i] = alphabet[index];
     }
-  bookingNumber.toString().toUpperCase();
+    String bookingNr = new String(bookingNumber);
+    this.bookingNumber = bookingNr.toUpperCase();
   }
 
+  void generateDayOfWeek() {
+    String[] dowList = {"MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};
+    Random random = new Random();
+    int randomIndex = random.nextInt(7);
+    this.dayOfWeek = dowList[randomIndex];
+  }
 
   @Override
   public String getDowBooking() {
-    return null;
+    return this.dayOfWeek;
   }
 
   @Override
   public String getCodeBooking() {
-    return null;
+    return this.bookingNumber;
   }
 
   @Override
   public String toString() {
-    return;
+    String tempFormat = FORMATFORPRINT;
+    tempFormat = String.format(tempFormat, getCodeBooking(), getDowBooking());
+    return tempFormat;
   }
 }
