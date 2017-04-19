@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Collections;
 
 public class SortTheArray {
   public static void main(String[] args) {
@@ -9,7 +10,7 @@ public class SortTheArray {
   }
 
   public static <T extends Number> void toDescendArray(T[] array) {
-    Arrays.sort(array);
+    Arrays.sort(array, Collections.reverseOrder());
     for (T t : array) {
       System.out.print(t + " ");
     }
