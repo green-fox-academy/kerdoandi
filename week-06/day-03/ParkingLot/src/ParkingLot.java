@@ -32,13 +32,15 @@ public class ParkingLot {
 
     Map<Car, Integer> carMap = new HashMap<>();
     for (int i = 0; i < parkingLot.size(); i++) {
-      if (!carMap.containsKey(parkingLot.get(i))) {
-        carMap.put(parkingLot.get(i), 1);
-      } else {
-        carMap.put(parkingLot.get(i), carMap.get(parkingLot.get(i)) + 1);
+      for (int j = 0; i < carMap.size(); j++) {
+        if (!parkingLot.get(i).getCarType().equals(carMap.containsKey(j))) {
+          carMap.put(parkingLot.get(i), 1);
+        } else {
+          carMap.put(parkingLot.get(i), carMap.get(parkingLot.get(i)) + 1);
+        }
       }
+      System.out.println(carMap);
     }
-    System.out.println(carMap);
   }
 }
 
