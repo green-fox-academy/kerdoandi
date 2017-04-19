@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public enum CarType {
-  AUDI, OPEL, SUZUKI, BMW, CITROEN, PEUGEOT, HONDA, NISSAN;
+  AUDI, OPEL, SUZUKI, BMW, CITROEN;
 
   public static CarType getRandomCarType() {
     Random random = new Random();

@@ -1,10 +1,12 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ParkingLot {
   public static void main(String[] args) {
     List<Car> parkingLot = new ArrayList<>();
-    for (int i = 0; i < 25; i++) {
+    for (int i = 0; i < 50; i++) {
       parkingLot.add(new Car(CarType.getRandomCarType(), CarColor.getRandomCarColor()));
     }
 
@@ -27,6 +29,16 @@ public class ParkingLot {
       }
       System.out.println("CarColor: " + CarColor.values()[j] + " " + nrOfSameColor);
     }
+
+    Map<Car, Integer> carMap = new HashMap<>();
+    for (int i = 0; i < parkingLot.size(); i++) {
+      if (!carMap.containsKey(parkingLot.get(i))) {
+        carMap.put(parkingLot.get(i), 1);
+      } else {
+        carMap.put(parkingLot.get(i), carMap.get(parkingLot.get(i)) + 1);
+      }
+    }
+    System.out.println(carMap);
   }
 }
 
