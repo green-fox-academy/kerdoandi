@@ -6,11 +6,13 @@ public class SortTheArray {
     Double[] doubleArray = {1.5, 6.7, 8.5, 9.5, 2.5, 7.1};
     toDescendArray(intArray);
     toDescendArray(doubleArray);
-    System.out.println(Arrays.toString(intArray));
-    System.out.println(Arrays.toString(doubleArray));
   }
 
   public static <T extends Number> void toDescendArray(T[] array) {
     Arrays.sort(array);
+    for (T t : array) {
+      System.out.print(t + " ");
+    }
+    System.out.println();
   }
 }
