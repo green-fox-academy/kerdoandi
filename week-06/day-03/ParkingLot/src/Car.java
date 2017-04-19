@@ -11,4 +11,12 @@ public class Car {
   public String toString() {
     return carType + " " + carColor;
   }
+
+  public CarType getCarType() {
+    return carType;
+  }
+
+  public CarColor getCarColor() {
+    return carColor;
+  }
 }
