@@ -1,12 +1,9 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ParkingLot {
   public static void main(String[] args) {
     List<Car> parkingLot = new ArrayList<>();
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < 100; i++) {
       parkingLot.add(new Car(CarType.getRandomCarType(), CarColor.getRandomCarColor()));
     }
 
@@ -30,17 +27,28 @@ public class ParkingLot {
       System.out.println("CarColor: " + CarColor.values()[j] + " " + nrOfSameColor);
     }
 
-    Map<Car, Integer> carMap = new HashMap<>();
+    Map<String, Integer> map = new HashMap<>();
+    String carNameMaxOccurance = "";
+    Integer maxOccurance = 0;
     for (int i = 0; i < parkingLot.size(); i++) {
-      for (int j = 0; i < carMap.size(); j++) {
-        if (!parkingLot.get(i).equals(carMap.containsKey(j))) {
-          carMap.put(parkingLot.get(i), 1);
-        } else {
-          carMap.put(parkingLot.get(i), carMap.get(parkingLot.get(i)) + 1);
+      String carname = parkingLot.get(i).toString();
+      if (map.containsKey(carname)) {
+        Integer carOccurance = map.get(carname);
+        map.put(carname, carOccurance + 1);
+        if ((carOccurance + 1) > maxOccurance) {
+          carNameMaxOccurance = carname;
+          maxOccurance = carOccurance + 1;
+        }
+      } else {
+        map.put(carname, 1);
+        if (1 > maxOccurance) {
+          carNameMaxOccurance = carname;
+          maxOccurance = 1;
         }
       }
-      System.out.println(carMap);
     }
+    System.out.println("Most popular car: " + carNameMaxOccurance + " occurs " + maxOccurance + " times.");
+    System.out.println(map);
   }
 }
 
