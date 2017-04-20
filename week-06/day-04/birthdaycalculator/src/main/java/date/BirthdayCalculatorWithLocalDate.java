@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
-public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
+public class BirthdayWithLocalDate implements date.BirthdayCalculator<LocalDate> {
 
   @Override
   public LocalDate parseDate(String str) {
