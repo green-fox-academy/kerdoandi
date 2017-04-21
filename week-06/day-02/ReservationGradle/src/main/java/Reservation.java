@@ -3,7 +3,7 @@ import org.apache.commons.lang.RandomStringUtils;
 import java.util.Random;
 
 public class Reservation implements Reservationy {
-  private String bookingNumber;
+  private String bookingNumber
   private String dayOfWeek;
 
   Reservation() {
