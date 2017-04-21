@@ -1,13 +1,7 @@
 package date;
 
 import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
-
-import static java.lang.Math.toIntExact;
-import static java.time.temporal.ChronoUnit.DAYS;
 
 public class BirthdayWithLocalDate implements date.BirthdayCalculator<LocalDate> {
 
