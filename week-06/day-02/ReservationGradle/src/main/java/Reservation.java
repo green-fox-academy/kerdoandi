@@ -1,9 +1,8 @@
 import org.apache.commons.lang.RandomStringUtils;
-
 import java.util.Random;
 
 public class Reservation implements Reservationy {
-  private String bookingNumber
+  private String bookingNumber;
   private String dayOfWeek;
 
   Reservation() {
@@ -35,7 +34,7 @@ public class Reservation implements Reservationy {
 
   @Override
   public String toString() {
-    String FORMATFORPRINT = "Booking# %s for %s";
-    return String.format(FORMATFORPRINT, getCodeBooking(), getDowBooking());
+    String formatForPrint = "Booking# %s for %s";
+    return String.format(formatForPrint, getCodeBooking(), getDowBooking());
   }
 }
