@@ -1,11 +1,11 @@
 import org.apache.commons.lang.RandomStringUtils;
 import java.util.Random;
 
-public class Reservation implements Reservationy {
+public class Reservations implements Reservationy {
   private String bookingNumber;
   private String dayOfWeek;
 
-  Reservation() {
+  Reservations() {
     generateBookingNumber();
     generateDayOfWeek();
   }
@@ -26,10 +26,12 @@ public class Reservation implements Reservationy {
   public String getDowBooking() {
     return this.dayOfWeek;
   }
+
   @Override
   public String getCodeBooking() {
     return this.bookingNumber;
   }
+
   @Override
   public String toString() {
     String formatForPrint = "Booking# %s for %s";

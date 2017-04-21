@@ -1,12 +1,12 @@
 import org.apache.commons.lang.RandomStringUtils;
 
-public class CreditCard implements CreditCardy {
+public class CreditCards implements CreditCardy {
   private String name;
   private String CC;
   private int CVV;
   private static int cardHolderID = 0;
 
-  CreditCard() {
+  CreditCards() {
     generateCardHolderName();
     this.CC = RandomStringUtils.randomNumeric(16);
     cumeSumCVV(this.CC);
@@ -14,7 +14,7 @@ public class CreditCard implements CreditCardy {
 
   private void generateCardHolderName() {
     this.name = "ABC".concat(String.valueOf(cardHolderID++));
-}
+  }
 
   @Override
   public int getSumCVV() {
@@ -35,8 +35,8 @@ public class CreditCard implements CreditCardy {
   public int cumeSumCVV(String CC) {
     String[] CCarray = this.CC.split("");
     this.CVV = 0;
-    for (String aCCarray : CCarray) {
-      this.CVV = this.CVV + Integer.parseInt(aCCarray);
+    for (int i = 0; i < CCarray.length; i++) {
+      this.CVV = this.CVV + Integer.parseInt(CCarray[i]);
     }
     return this.CVV;
   }
