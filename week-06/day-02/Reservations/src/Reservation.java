@@ -1,31 +1,30 @@
 import java.util.Random;
 
 public class Reservation implements Reservationy {
-  final String FORMATFORPRINT = "Booking# %s for %s";
-  String bookingNumber;
-  String dayOfWeek;
+  private String bookingNumber;
+  private String dayOfWeek;
 
-  public Reservation() {
+  Reservation() {
     generateBookingNumber();
     generateDayOfWeek();
   }
 
-  void generateBookingNumber() {
+  private void generateBookingNumber() {
     char[] alphabet = "0123456789abcdefghijklmnopqrstuvwxyz".toCharArray();
     char[] bookingNumber = new char[8];
     Random random = new Random();
     for (int i = 0; i < 8; i++) {
-      int index = random.nextInt(36);
+      int index = random.nextInt(alphabet.length);
       bookingNumber[i] = alphabet[index];
     }
     String bookingNr = new String(bookingNumber);
     this.bookingNumber = bookingNr.toUpperCase();
   }
 
-  void generateDayOfWeek() {
+  private void generateDayOfWeek() {
     String[] dowList = {"MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};
     Random random = new Random();
-    int randomIndex = random.nextInt(7);
+    int randomIndex = random.nextInt(dowList.length);
     this.dayOfWeek = dowList[randomIndex];
   }
 
@@ -41,8 +40,7 @@ public class Reservation implements Reservationy {
 
   @Override
   public String toString() {
-    String tempFormat = FORMATFORPRINT;
-    tempFormat = String.format(tempFormat, getCodeBooking(), getDowBooking());
-    return tempFormat;
+    String FORMATFORPRINT = "Booking# %s for %s";
+    return String.format(FORMATFORPRINT, getCodeBooking(), getDowBooking());
   }
 }
