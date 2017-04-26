@@ -55,7 +55,7 @@ public class CowsAndBulls {
     }
 
     List<Integer> shortRandomList = new ArrayList<>();
-    for (int p = 0; p < notMatchingIndexList.size(); p++) {
+      for (int p = 0; p < notMatchingIndexList.size(); p++) {
       shortRandomList.add(randomList.get(notMatchingIndexList.get(p)));
     }
 
