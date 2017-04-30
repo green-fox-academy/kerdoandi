@@ -1,4 +1,6 @@
 public class Card {
+
+
   enum CardColor {RED, BLACK}
   enum Suit {CLUBS, DIAMONDS, HEARTS, SPADES}
   enum Rank {
@@ -17,5 +19,13 @@ public class Card {
     this.cardColor = cardColor;
     this.suit = suit;
     this.rank = rank;
+  }
+  @Override
+  public String toString() {
+    return cardColor + " " + suit + " " + rank.value;
+  }
+
+  public int getCardValue() {
+    return rank.value;
   }
 }
