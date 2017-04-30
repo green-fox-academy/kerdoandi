@@ -46,5 +46,6 @@ public class GreenfoxApp {
     badass.addMentor(gandhi);
     badass.info();
     System.out.println(john.compareTo(anne));
+    System.out.println(mentor.compareTo(gandhi));
   }
 }

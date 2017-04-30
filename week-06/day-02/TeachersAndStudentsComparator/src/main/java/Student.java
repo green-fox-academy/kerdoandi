@@ -37,4 +37,5 @@ public class Student extends Person implements Comparable<Student> {
   public void setSkippedDays(int skippedDays) {
     this.skippedDays = skippedDays;
   }
+
 }
