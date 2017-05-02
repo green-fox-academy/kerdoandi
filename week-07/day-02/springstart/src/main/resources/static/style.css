@@ -4,11 +4,26 @@
  }
 
 .param1 {
-    color: #346324;
+    color: aqua;
     font-size: 24px;
 }
 
 .param2 {
-    color: #763245;
+    color: crimson;
     font-size: 8px;
+}
+
+.param3 {
+    color: darkmagenta;
+    font-size: 30px;
+}
+
+.param4 {
+    color: forestgreen;
+    font-size: 18px;
+}
+
+.param5 {
+    color: midnightblue;
+    font-size: 58px;
 }

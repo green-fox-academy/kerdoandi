@@ -7,7 +7,7 @@ public class RandomParameters {
   int randomNumber;
 
   public  RandomParameters() {
-    randomNumber = random.nextInt(3);
+    randomNumber = random.nextInt(6);
   }
 
   public String getRandomParameters() {
