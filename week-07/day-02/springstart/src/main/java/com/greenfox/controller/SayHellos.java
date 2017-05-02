@@ -1,11 +1,11 @@
 package com.greenfox.controller;
 
-
+import com.greenfox.RandomParameters;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import java.util.Random;
 
+import java.util.Random;
 
 @Controller
 public class SayHellos {
@@ -17,7 +17,9 @@ public class SayHellos {
             "Sa-wat-dee", "Merhaba", "Selam", "Vitayu", "Xin chào", "Hylo", "Sut Mae", "Sholem Aleychem", "Sawubona"};
     Random random = new Random();
     String tempGreet = hellos[random.nextInt(hellos.length)];
+    RandomParameters rdmparam = new RandomParameters();
     model.addAttribute("greeting", tempGreet);
+    model.addAttribute("randomParameters", rdmparam.getRandomParameters());
     return "greetinglanguages";
   }
 }
