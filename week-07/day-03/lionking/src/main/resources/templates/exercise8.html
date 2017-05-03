@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Exercise7</title>
+    <title>Exercise8</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" th:href="@{/style.css}"/>
 </head>
@@ -12,6 +12,7 @@
         <th>NAME</th>
         <th>BALANCE</th>
         <th>TYPE</th>
+        <th>GOOD/BAD</th>
     </tr>
     <tr th:each="bankAccount : ${bank.baList}" th:class="${bankAccount.isKing()} ? king : notKing">
         <td th:text="${bankAccountStat.count}"></td>
@@ -19,6 +20,7 @@
         <td th:text="${bankAccount.balance}"></td>
         <td th:text="${bankAccount.type}"></td>
         <td th:text="${bankAccount.isKing()}"></td>
+        <td th:text="${bankAccount.isKing()} ? ${goodguy} : ${badguy}"></td>
     </tr>
 </table>
 </body>

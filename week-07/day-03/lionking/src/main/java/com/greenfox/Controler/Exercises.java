@@ -77,4 +77,19 @@ public class Exercises {
     model.addAttribute("bank", bank);
     return "exercise7";
   }
+
+
+  @RequestMapping("/exercise8")
+  public String isBadGuy(Model model) {
+    Bank bank = new Bank();
+    bank.addBankAccount(new BankAccount("Tom", 48392,"cat", false));
+    bank.addBankAccount(new BankAccount("Jerry", 37425,"mouse", false));
+    bank.addBankAccount(new BankAccount("Dumbo", 3562,"elephant", false));
+    bank.addBankAccount(new BankAccount("Simba", 4373,"lyon", true));
+
+    model.addAttribute("bank", bank);
+    model.addAttribute("badguy", "Bad Guy");
+    model.addAttribute("goodguy", "Good Guy");
+    return "exercise8";
+  }
 }
