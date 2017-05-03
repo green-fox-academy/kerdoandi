@@ -9,4 +9,10 @@ public class BankAccount {
   String name;
   int balance;
   String type;
+
+
+  @Override
+  public String toString() {
+    return name + " " + balance + " " + type;
+  }
 }

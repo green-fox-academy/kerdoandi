@@ -1,6 +1,7 @@
 package com.greenfox.Controler;
 
 
+import com.greenfox.Model.Bank;
 import com.greenfox.Model.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,5 +39,16 @@ public class Exercises {
   public String addHtml(Model model) {
     model.addAttribute("text", "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>");
     return "exercise4";
+  }
+
+  @RequestMapping("/exercise5")
+  public String getBankAccount(Model model) {
+    Bank bank = new Bank();
+    bank.addBankAccount(new BankAccount("Tom", 48392,"cat"));
+    bank.addBankAccount(new BankAccount("Jerry", 37425,"mouse"));
+    bank.addBankAccount(new BankAccount("Dumbo", 3562,"elephant"));
+
+    model.addAttribute("character", bank.getBankAccount(2));
+    return "exercise5";
   }
 }
