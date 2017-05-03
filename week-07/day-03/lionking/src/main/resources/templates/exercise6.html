@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Exercise6</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<table>
+    <tr>
+        <th>INDEX</th>
+        <th>NAME</th>
+        <th>BALANCE</th>
+        <th>TYPE</th>
+    </tr>
+    <tr th:each="bankAccount : ${bank.baList}">
+        <td th:text="${bankAccountStat.count}"></td>
+        <td th:text="${bankAccount.name}"></td>
+        <td th:text="${bankAccount.balance}"></td>
+        <td th:text="${bankAccount.type}"></td>
+    </tr>
+</table>
+</body>
+</html>
