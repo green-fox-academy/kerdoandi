@@ -12,7 +12,7 @@ public class Exercises {
 
   @RequestMapping("/exercise1")
   public String listFields(Model model) {
-    BankAccount bankAccount = new BankAccount("Simba", 2000, "lion");
+    BankAccount bankAccount = new BankAccount("Simba", 2000, "lion", false);
     model.addAttribute("name", bankAccount.getName());
     model.addAttribute("balance", bankAccount.getBalance());
     model.addAttribute("type", bankAccount.getType());
@@ -21,7 +21,7 @@ public class Exercises {
 
   @RequestMapping("/exercise2")
   public String formatDecimals(Model model) {
-    BankAccount bankAccount = new BankAccount("Simba", 2000, "lion");
+    BankAccount bankAccount = new BankAccount("Simba", 2000, "lion", false);
     model.addAttribute("name", bankAccount.getName());
     model.addAttribute("balance", bankAccount.getBalance());
     model.addAttribute("type", bankAccount.getType());
@@ -30,7 +30,7 @@ public class Exercises {
 
   @RequestMapping("/exercise3")
   public String addZebra(Model model) {
-    BankAccount bankAccount = new BankAccount("Simba", 2000, "lion");
+    BankAccount bankAccount = new BankAccount("Simba", 2000, "lion", false);
     model.addAttribute("name", bankAccount.getName());
     model.addAttribute("balance", bankAccount.getBalance());
     model.addAttribute("type", bankAccount.getType());
@@ -47,9 +47,9 @@ public class Exercises {
   @RequestMapping("/exercise5")
   public String getBankAccount(Model model) {
     Bank bank = new Bank();
-    bank.addBankAccount(new BankAccount("Tom", 48392,"cat"));
-    bank.addBankAccount(new BankAccount("Jerry", 37425,"mouse"));
-    bank.addBankAccount(new BankAccount("Dumbo", 3562,"elephant"));
+    bank.addBankAccount(new BankAccount("Tom", 48392,"cat", false));
+    bank.addBankAccount(new BankAccount("Jerry", 37425,"mouse", false));
+    bank.addBankAccount(new BankAccount("Dumbo", 3562,"elephant", false));
 
     model.addAttribute("character", bank.getBankAccount(2));
     return "exercise5";
@@ -58,11 +58,23 @@ public class Exercises {
   @RequestMapping("/exercise6")
   public String getBankAccountList(Model model) {
     Bank bank = new Bank();
-    bank.addBankAccount(new BankAccount("Tom", 48392,"cat"));
-    bank.addBankAccount(new BankAccount("Jerry", 37425,"mouse"));
-    bank.addBankAccount(new BankAccount("Dumbo", 3562,"elephant"));
+    bank.addBankAccount(new BankAccount("Tom", 48392,"cat", false));
+    bank.addBankAccount(new BankAccount("Jerry", 37425,"mouse", false));
+    bank.addBankAccount(new BankAccount("Dumbo", 3562,"elephant", false));
 
     model.addAttribute("bank", bank);
     return "exercise6";
+  }
+
+  @RequestMapping("/exercise7")
+  public String getKing(Model model) {
+    Bank bank = new Bank();
+    bank.addBankAccount(new BankAccount("Tom", 48392,"cat", false));
+    bank.addBankAccount(new BankAccount("Jerry", 37425,"mouse", false));
+    bank.addBankAccount(new BankAccount("Dumbo", 3562,"elephant", false));
+    bank.addBankAccount(new BankAccount("Simba", 4373,"lyon", true));
+
+    model.addAttribute("bank", bank);
+    return "exercise7";
   }
 }

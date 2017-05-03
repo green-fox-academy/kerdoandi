@@ -9,10 +9,11 @@ public class BankAccount {
   String name;
   int balance;
   String type;
+  boolean isKing;
 
 
   @Override
   public String toString() {
-    return name + " " + balance + " " + type;
+    return name + " " + balance + " " + type + " " + isKing;
   }
 }
