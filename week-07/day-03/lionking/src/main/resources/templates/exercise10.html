@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Exercise8</title>
+    <title>Exercise10</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" th:href="@{/style.css}"/>
 </head>
@@ -13,13 +13,18 @@
         <th>BALANCE</th>
         <th>TYPE</th>
         <th>GOOD/BAD</th>
+        <th>RAISED BALANCE</th>
     </tr>
     <tr th:each="bankAccount : ${bank.baList}" th:class="${bankAccount.isKing()} ? king : notKing">
         <td th:text="${bankAccountStat.count}"></td>
         <td th:text="${bankAccount.name}"></td>
         <td th:text="${bankAccount.balance}"></td>
         <td th:text="${bankAccount.type}"></td>
-        <td th:text="${bankAccount.isKing()} ? ${goodguy} : ${badguy}"></td>
+        <td th:switch="${bankAccount.isKing()}">
+            <span th:case="true" th:text="${goodguy}"/>
+            <span th:case="false" th:text="${badguy}"/>
+        </td>
+        <td th:formaction="'Raise balance'" th:action="bankAccount.balance + 10"/>
     </tr>
 </table>
 </body>
