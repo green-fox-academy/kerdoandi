@@ -30,6 +30,7 @@ public class Exercises {
     model.addAttribute("name", bankAccount.getName());
     model.addAttribute("balance", bankAccount.getBalance());
     model.addAttribute("type", bankAccount.getType());
+    model.addAttribute("currency", " Zebra");
     return "bankAccount03";
   }
 
