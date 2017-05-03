@@ -12,6 +12,7 @@
         <th>NAME</th>
         <th>BALANCE</th>
         <th>TYPE</th>
+        <th>ISKING?</th>
     </tr>
     <tr th:each="bankAccount : ${bank.baList}" th:class="${bankAccount.isKing()} ? king : notKing">
         <td th:text="${bankAccountStat.count}"></td>
