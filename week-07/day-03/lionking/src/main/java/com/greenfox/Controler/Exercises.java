@@ -32,4 +32,10 @@ public class Exercises {
     model.addAttribute("type", bankAccount.getType());
     return "bankAccount03";
   }
+
+  @RequestMapping("/exercise4")
+  public String addHtml(Model model) {
+    model.addAttribute("text", "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>");
+    return "exercise4";
+  }
 }
