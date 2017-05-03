@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class Exercises {
-  @RequestMapping("/exercise1")
   BankAccount bankAccount = new BankAccount("Simba", 2000, "lion");
+  @RequestMapping("/exercise1")
   public String listFields(Model model) {
     model.addAttribute("name", bankAccount.getName());
     model.addAttribute("balance", bankAccount.getBalance());
