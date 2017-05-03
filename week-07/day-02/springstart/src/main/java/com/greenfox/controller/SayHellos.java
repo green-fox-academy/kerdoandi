@@ -19,8 +19,8 @@ public class SayHellos {
     Random random = new Random();
     String tempGreet = hellos[random.nextInt(hellos.length)];
     RandomParameters rdmparam = new RandomParameters();
-    model.addAttribute("greeting", tempGreet);
     model.addAttribute("name", name);
+    model.addAttribute("hellos", hellos);
     model.addAttribute("randomParameters", rdmparam.getRandomParameters());
     return "greetinglanguages";
   }

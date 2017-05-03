@@ -6,6 +6,11 @@
     <link rel="stylesheet" th:href="@{/style.css}"/>
 </head>
 <body>
-    <p th:class="${randomParameters}" th:text="${greeting} + ' ' + ${name}" ></p>
+    <table th:each="hello : ${hellos}">
+        <tr th:class="${randomParameters}">
+            <td th:text="${helloStat.count} + ' ' + ${hello} + ' ' + ${name}"></td>
+        </tr>
+    </table>
 </body>
 </html>
+
