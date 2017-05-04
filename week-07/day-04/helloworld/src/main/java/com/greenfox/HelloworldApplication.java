@@ -6,12 +6,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HellobeanworldApplication implements CommandLineRunner {
+public class HelloworldApplication implements CommandLineRunner {
 	@Autowired
 	HelloWorld hw;
 
 	public static void main(String[] args) {
-		SpringApplication.run(HellobeanworldApplication.class, args);
+		SpringApplication.run(HelloworldApplication.class, args);
 	}
 
 	@Override
