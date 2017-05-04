@@ -11,12 +11,15 @@ public class MessageserviceApplication implements CommandLineRunner{
 	@Autowired
 	MessageProceeder messageProceeder;
 
-	public static void main(String[] args) {
-		SpringApplication.run(MessageserviceApplication.class, args);
-	}
-
 	@Override
 	public void run(String... args) throws Exception {
 		messageProceeder.processMessage("Hi Barba, How are you?", "office@greenfox.com");
 	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(MessageserviceApplication.class, args);
+	}
 }
+
+
+

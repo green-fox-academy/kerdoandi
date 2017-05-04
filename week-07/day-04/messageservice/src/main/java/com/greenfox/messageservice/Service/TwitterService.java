@@ -4,6 +4,6 @@ public class TwitterService implements MessageService {
 
   @Override
   public void sendMessage(String message, String address) {
-    String.format("Twitter message Sent to %s with Message=%s", address, message);
+    System.out.println("Email Sent to " + address + " with Message=" + message);
   }
 }
