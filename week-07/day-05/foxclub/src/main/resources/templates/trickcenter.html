@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Fox Club</title>
+</head>
+<body>
+<ul>
+    <li><a href="index.html">Information</a></li>
+    <li><a href="nutritionStore.html">Nutrition Store</a></li>
+    <li><a href="trickcenter.html">Trick center</a></li>
+</ul>
+
+<form method="post" th:action="@{/addtrick}">
+    <label>New trick</label>
+    <input type="text" name="new_trick" placeholder="New trick"/>
+    <button type="submit">Change</button>
+</form>
+</body>
+</html>

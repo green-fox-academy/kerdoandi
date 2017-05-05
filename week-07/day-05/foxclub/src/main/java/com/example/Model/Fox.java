@@ -7,13 +7,14 @@ import java.util.List;
 
 @Component
 public class Fox {
-  String name;
-  List<Tricks> trickList;
-  String food;
-  String drink;
+  private String name;
+  private List<Tricks> trickList;
+  private String food;
+  private String drink;
 
   public Fox() {
     trickList = new ArrayList<>();
+    name = "Mr. Fox";
   }
 
   public void addTrick(Tricks trick) {
