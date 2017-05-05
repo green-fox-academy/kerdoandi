@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Fox Club</title>
+</head>
+<body>
+<ul>
+    <li>Information</li>
+</ul>
+<img src="/assets/greenfox.png" alt="GreenFox"/>
+<p th:text="'This is ' + ${object.name} + '. Currently living on ' + ${object.food} + ' and ' + ${object.drink} + '. He knows ' + ${#lists.size(object.trickList)} + ' tricks.'"/>
+<h1>Known tricks</h1>
+<ul th:each="trick : ${object.trickList}">
+    <li th:text="${trick.name}">write HTML</li>
+</ul>
+</body>
+</html>
