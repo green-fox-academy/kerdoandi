@@ -1,18 +1,24 @@
 package com.example.controller;
 
 
+import com.example.repository.ToDoRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/todo")
 public class ToDoController {
+  ToDoRepository toDoRepository;
+
+  public ToDoController(ToDoRepository todorepo) {
+    toDoRepository = todorepo;
+  }
 
   @RequestMapping({"/", "/list"})
-  @ResponseBody
-  public String list(){
-    return "This is my first todo";
+  public String list(Model model){
+    model.addAttribute("todos", toDoRepository.findAll());
+    return "todolist";
   }
 }
 

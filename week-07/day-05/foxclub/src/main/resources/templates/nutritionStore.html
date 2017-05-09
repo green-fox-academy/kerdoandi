@@ -20,7 +20,7 @@
 <p></p>
 <form method="post" th:action="@{/changeNutrition}">
     <label>Food options</label>
-    <select id="foods" name="selected_food">
+    <select id="foods" name="selected_food" title="">
         <option th:each="food : ${nutrition.getFoodList()}" th:text="${food}"></option>
     </select>
     <label>Drink options</label>
