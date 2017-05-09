@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class ToDo {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  int id;
+  long id;
   String title;
   @Column(nullable = false)
   boolean isUrgent;

@@ -3,9 +3,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>ToDoApp</title>
+    <!--<link rel="stylesheet" th:href="@{/style.css}"/>-->
 </head>
 <body>
 <h1>TODOS FOR TODAY</h1>
+<a href="/todo/add">Add new todo</a>
+
 <table>
     <tr>
         <th>ID</th>
@@ -14,10 +17,11 @@
         <th>URGENT</th>
     </tr>
     <tr th:each="todo : ${todos}">
-        <td th:text="${todo.id}"></td>
-        <td th:text="${todo.title}"></td>
-        <td th:text="${todo.isDone()}"></td>
-        <td th:text="${todo.isUrgent()}"></td>
+        <td th:style="|border : 1px solid|" th:text="${todo.id}"></td>
+        <td th:style="|border : 1px solid|" th:text="${todo.title}"></td>
+        <td th:style="|border : 1px solid|" th:text="${todo.isDone()}"></td>
+        <td th:style="|border : 1px solid|" th:text="${todo.isUrgent()}">   </td>
+        <td th:style="|border : 1px solid|"><a th:href="@{'/todo/' + ${todo.id} + '/delete'}">delete</a></td>
     </tr>
 </table>
 </body>
