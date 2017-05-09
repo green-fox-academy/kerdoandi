@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Component
 @Entity
@@ -18,17 +15,21 @@ public class ToDo {
   @GeneratedValue(strategy = GenerationType.AUTO)
   int id;
   String title;
+  @Column(nullable = false)
   boolean isUrgent;
+  @Column(nullable = false)
   boolean isDone;
 
   public ToDo() {
-    isUrgent = false;
-    isDone = false;
   }
 
   public ToDo(String title) {
     this.title = title;
-    isUrgent = false;
-    isDone = false;
+  }
+
+
+  @Override
+  public String toString() {
+    return id + " " + title + " " + isUrgent + " " + isDone;
   }
 }

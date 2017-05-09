@@ -1,5 +1,4 @@
 package com.greenfox;
-import com.greenfox.models.ToDo;
 import com.greenfox.repository.ToDoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -17,7 +16,5 @@ public class TodowithsqlApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		toDoRepository.save(new ToDo("I have to learn Object Relational Mapping"));
-		toDoRepository.save(new ToDo("I have to learn Object Relational Mapping2"));
 	}
 }
