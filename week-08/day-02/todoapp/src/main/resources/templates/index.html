@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>ToDo App</title>
+</head>
+<body>
+<ul>
+    <li><a href="/">ToDos</a></li>
+</ul>
+<img src="greenfox.png" alt="GreenFox"/>
+<p th:text="'This is ' + ${fox.name} + '. Currently living on ' + ${fox.food} + ' and ' + ${fox.drink} + '. He knows ' + ${#lists.size(fox.trickList)} + ' tricks.'"></p>
+<h1>Known tricks</h1>
+<p th:text="${fox.name} + ' know no tricks, yet. Go and learn some'" th:if="${#lists.size(fox.trickList) == 0}"></p>
+<ul th:each="trick : ${fox.trickList}">
+    <li th:text="${trick.name}"></li>
+</ul>
+</body>
+</html>
