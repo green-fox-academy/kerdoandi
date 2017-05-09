@@ -1,15 +1,16 @@
-package com.example.Models;
+package com.example.models;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ToDo {
   int id;
   String title;
   boolean isUrgent;
   boolean isDone;
 
-  public ToDo(int id, String title) {
-    this.id = id;
-    this.title = title;
-    this.isUrgent = false;
-    this.isDone = false;
+  public ToDo() {
+    isUrgent = false;
+    isDone = false;
   }
 }
