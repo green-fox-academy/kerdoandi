@@ -13,7 +13,7 @@ public class DoublingController {
 
   @ExceptionHandler(Exception.class)
   public ErrorMessage someException(Exception e) {
-    return new ErrorMessage("Not working!");
+    return new ErrorMessage("Please provide an input!");
   }
 
   @ExceptionHandler(HttpMessageNotReadableException.class)
