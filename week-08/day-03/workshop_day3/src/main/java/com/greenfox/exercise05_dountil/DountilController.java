@@ -7,10 +7,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class DountilController {
 
-  @RequestMapping(value = "dountil/{what}", method = RequestMethod.GET)
-  public DoUntil getdoUntil(@PathVariable(value = "what", required = true) int input) {
+  @RequestMapping(value = "/dountil/{what}", method = RequestMethod.POST)
+  public DoUntil doUntil(@PathVariable(value = "what", required = true) String method, @RequestBody Input input) {
     DoUntil doUntil = new DoUntil();
-    doUntil.setUntil(input);
+    if (method.equals("sum")) {
+      doUntil.sum(input.getUntil());
+    } else if (method.equals("factor")) {
+      doUntil.factor(input.getUntil());
+    }
     return doUntil;
   }
 
