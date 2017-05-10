@@ -23,4 +23,10 @@ public class DountilController {
   public ErrorMessage parameterException(MissingServletRequestParameterException e) {
     return new ErrorMessage( "Please provide a number!");
   }
+
+
+  @ExceptionHandler(Exception.class)
+  public ErrorMessage someException(Exception e) {
+    return new ErrorMessage("Please provide a number!");
+  }
 }
