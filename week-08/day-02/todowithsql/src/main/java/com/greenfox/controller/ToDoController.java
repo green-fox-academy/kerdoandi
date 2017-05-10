@@ -39,10 +39,16 @@ public class ToDoController {
 
 
   @RequestMapping(value = "/{id}/delete", method = RequestMethod.GET)
-  public String delete(@PathVariable(value = "id") String id) {
-    long todoid = Long.parseLong(id);
-    toDoRepository.delete(todoid);
+  public String delete(@PathVariable(value = "id") long id) {
+    toDoRepository.delete(id);
     return "redirect:/todo/list";
+  }
+
+
+  @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
+  public String edit(Model model, @PathVariable(value = "id") String selectedid) {
+    model.addAttribute("todos", toDoRepository);
+    return "edit";
   }
 }
 
