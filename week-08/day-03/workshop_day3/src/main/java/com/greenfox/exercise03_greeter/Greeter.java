@@ -1,21 +1,18 @@
 package com.greenfox.exercise03_greeter;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public class Greeter {
-    String greeting;
+  String welcome_message;
 
   public Greeter() {
   }
 
   public void setGreeting(String name, String title) {
-    String uniqueGreeting = "Oh, hi there %s, my dear %s!";
-    greeting = String.format(uniqueGreeting, name, title);
+    String baseGreeting = "Oh, hi there %s, my dear %s!";
+    welcome_message = String.format(baseGreeting, name, title);
   }
 
-  public String getGreeting() {
-    return greeting;
+  public String getWelcome_message() {
+    return welcome_message;
   }
 }
 
