@@ -1,7 +1,7 @@
 package com.greenfox.exercise07_arrayhandler;
 
 public class Result {
-  int result;
+  Object result;
 
   public Result() {
   }
@@ -11,7 +11,7 @@ public class Result {
   }
 
 
-  public int getResult() {
+  public Object getResult() {
     return result;
   }
 
@@ -27,6 +27,14 @@ public class Result {
     int temp = 1;
     for (int i : numbers) {
       temp = temp * i;
+    }
+    this.result = temp;
+  }
+
+  public void toDouble(int[] numbers) {
+    int[] temp = new int[numbers.length];
+    for  (int i = 0; i < numbers.length; i++) {
+      temp[i] = numbers[i] * 2;
     }
     this.result = temp;
   }

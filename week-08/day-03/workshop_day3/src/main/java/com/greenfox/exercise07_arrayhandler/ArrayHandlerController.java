@@ -15,6 +15,8 @@ public class ArrayHandlerController {
       result.sum(input.getNumbers());
     } else if (input.getWhat().equals("multiply")) {
       result.multiply(input.getNumbers());
+    } else if (input.getWhat().equals("double")) {
+      result.toDouble(input.getNumbers());
     }
     return result;
   }
