@@ -1,4 +1,4 @@
-package com.greenfox.aze.reddit;
+package com.greenfox.kerdoandi.reddit;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

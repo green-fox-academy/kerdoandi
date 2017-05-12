@@ -1,4 +1,4 @@
-package com.greenfox.aze.reddit.model;
+package com.greenfox.kerdoandi.reddit.model;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;

@@ -1,15 +1,15 @@
-package com.greenfox.aze.reddit.model;
+package com.greenfox.kerdoandi.reddit.model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Posts {
   Iterable<Post> posts;
 
   public Posts() {
-
+    this.posts = new ArrayList<>();
   }
 
-  public void setPosts(List<Post> posts) {
+  public void setPosts(Iterable<Post> posts) {
     this.posts = posts;
   }
 

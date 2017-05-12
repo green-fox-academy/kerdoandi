@@ -1,4 +1,4 @@
-package com.greenfox.aze.reddit;
+package com.greenfox.kerdoandi.reddit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
