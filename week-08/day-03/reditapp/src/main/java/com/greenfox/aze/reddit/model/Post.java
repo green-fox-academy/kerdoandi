@@ -1,5 +1,6 @@
 package com.greenfox.aze.reddit.model;
 import org.springframework.stereotype.Component;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,17 +14,19 @@ public class Post {
   long id;
   String title;
   String href;
-//  long timestamp;
+//  Timestamp timestamp;
   int score;
 
   public Post() {
-
+    score = 0;
+//    this.timestamp = new Timestamp(System.currentTimeMillis() / 1000 );
   }
 
   public Post(String title, String href) {
     this.title = title;
     this.href = href;
-//    timestamp = System.currentTimeMillis() % 1000;
+//    this.timestamp = new Timestamp(System.currentTimeMillis() / 1000 );
+    score = 0;
   }
 
   public long getId() {
@@ -53,13 +56,16 @@ public class Post {
   public void setScore(int score) {
     this.score = score;
   }
+
+  public void upvote() {
+    this.score++;
+  }
+
+  public void downvote() {
+    this.score--;
+  }
 //
-//  public long getTimestamp() {
+//  public Timestamp getTimestamp() {
 //    return timestamp;
 //  }
-//
-//  public void setTimestamp(long timestamp) {
-//    this.timestamp = timestamp;
-//  }
-
 }
