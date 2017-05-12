@@ -1,10 +1,10 @@
 package com.greenfox.kerdoandi.reddit.model;
 import org.springframework.stereotype.Component;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Timestamp;
 
 @Component
 @Entity
@@ -14,19 +14,26 @@ public class Post {
   long id;
   String title;
   String href;
-//  Timestamp timestamp;
+  Timestamp timestamp;
   int score;
 
   public Post() {
     score = 0;
-//    this.timestamp = new Timestamp(System.currentTimeMillis() / 1000 );
+    this.timestamp = new Timestamp(System.currentTimeMillis() / 1000 );
   }
 
   public Post(String title, String href) {
     this.title = title;
     this.href = href;
-//    this.timestamp = new Timestamp(System.currentTimeMillis() / 1000 );
+    this.timestamp = new Timestamp(System.currentTimeMillis() / 1000 );
     score = 0;
+  }
+
+  public Post(String title, String href, int score) {
+    this.title = title;
+    this.href = href;
+    this.timestamp = new Timestamp(System.currentTimeMillis() / 1000);
+    this.score = score;
   }
 
   public long getId() {
@@ -64,8 +71,8 @@ public class Post {
   public void downvote() {
     this.score--;
   }
-//
-//  public Timestamp getTimestamp() {
-//    return timestamp;
-//  }
+
+  public Timestamp getTimestamp() {
+    return timestamp;
+  }
 }
