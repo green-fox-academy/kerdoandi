@@ -42,11 +42,13 @@ public class CargoApplicationTests {
 	@Test
 	public void getShipStatus() throws Exception {
 		mockMvc.perform(get("/rocket"))
-						.andExpect(status().isOk());
+						.andExpect(status().isOk())
+						.andExpect(jsonPath("$.ready").value(false))
+						.andExpect(jsonPath("$.shipstatus").value("empty"));
 	}
 
 	@Test
-	public void FilledShipStatus() throws Exception {
+	public void filledShipStatus() throws Exception {
 		mockMvc.perform(get("/rocket/fill?caliber=.25&amount=5000"))
 						.andExpect(status().isOk())
 						.andExpect(jsonPath("$.received").value(".25"))
@@ -55,23 +57,7 @@ public class CargoApplicationTests {
 	}
 
 	@Test
-	public void TestShipStatusIsEmpty() throws Exception {
-		mockMvc.perform(get("/rocket"))
-						.andExpect(status().isOk())
-						.andExpect(jsonPath("$.ready").value(false))
-					.andExpect(jsonPath("$.shipstatus").value("empty"));
-	}
-
-	@Test
-	public void TestShipStatus() throws Exception {
-		mockMvc.perform(get("/rocket/fill?caliber=.25&amount=5000"))
-						.andExpect(status().isOk())
-						.andExpect(jsonPath("$.ready").value(false))
-						.andExpect(jsonPath("$.shipstatus").value("40.0%"));
-	}
-
-	@Test
-	public void TestShipStatusIsFull() throws Exception {
+	public void testShipStatus() throws Exception {
 		mockMvc.perform(get("/rocket/fill?caliber=.25&amount=12500"))
 						.andExpect(status().isOk())
 						.andExpect(jsonPath("$.ready").value(true))
@@ -79,7 +65,7 @@ public class CargoApplicationTests {
 	}
 
 	@Test
-	public void TestShipStatusIsNotOK() throws Exception {
+	public void testShipStatusIsNotOK() throws Exception {
 		mockMvc.perform(get("/rocket/fill?caliber=.25"))
 						.andExpect(status().is4xxClientError());
 	}
