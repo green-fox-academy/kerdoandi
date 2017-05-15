@@ -39,11 +39,19 @@ public class GrootApplicationTests {
 		this.mockMvc = webAppContextSetup(webApplicationContext).build();
 }
 
-	@Test
-	public void GrootGreetWithQueryParam() throws Exception {
+  @Test
+  public void GrootGreetWithQueryParam() throws Exception {
     mockMvc.perform(get("/groot?message=somemessage"))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.received").value("somemessage"))
             .andExpect(jsonPath("$.translated").value("I am Groot!"));
+  }
+
+
+  @Test
+  public void GrootGreetWithoutQueryParam() throws Exception {
+    mockMvc.perform(get("/groot"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.error").value("I am groot!"));
   }
 }
