@@ -47,4 +47,9 @@ public class YonduApplicationTests {
             .andExpect(jsonPath("$.speed").value("10.0"));
 	}
 
+  @Test
+  public void testYonduWithoutParams() throws Exception {
+    mockMvc.perform(get("/yondu"))
+            .andExpect(status().is4xxClientError());
+  }
 }
