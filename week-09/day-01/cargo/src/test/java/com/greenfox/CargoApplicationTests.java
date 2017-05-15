@@ -15,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import java.nio.charset.Charset;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -44,4 +45,42 @@ public class CargoApplicationTests {
 						.andExpect(status().isOk());
 	}
 
+	@Test
+	public void FilledShipStatus() throws Exception {
+		mockMvc.perform(get("/rocket/fill?caliber=.25&amount=5000"))
+						.andExpect(status().isOk())
+						.andExpect(jsonPath("$.received").value(".25"))
+						.andExpect(jsonPath("$.amount").value("5000"))
+						.andExpect(jsonPath("$.ready").value(false));
+	}
+
+	@Test
+	public void TestShipStatusIsEmpty() throws Exception {
+		mockMvc.perform(get("/rocket"))
+						.andExpect(status().isOk())
+						.andExpect(jsonPath("$.ready").value(false))
+					.andExpect(jsonPath("$.shipstatus").value("empty"));
+	}
+
+	@Test
+	public void TestShipStatus() throws Exception {
+		mockMvc.perform(get("/rocket/fill?caliber=.25&amount=5000"))
+						.andExpect(status().isOk())
+						.andExpect(jsonPath("$.ready").value(false))
+						.andExpect(jsonPath("$.shipstatus").value("40.0%"));
+	}
+
+	@Test
+	public void TestShipStatusIsFull() throws Exception {
+		mockMvc.perform(get("/rocket/fill?caliber=.25&amount=12500"))
+						.andExpect(status().isOk())
+						.andExpect(jsonPath("$.ready").value(true))
+						.andExpect(jsonPath("$.shipstatus").value("full"));
+	}
+
+	@Test
+	public void TestShipStatusIsNotOK() throws Exception {
+		mockMvc.perform(get("/rocket/fill?caliber=.25"))
+						.andExpect(status().is4xxClientError());
+	}
 }
