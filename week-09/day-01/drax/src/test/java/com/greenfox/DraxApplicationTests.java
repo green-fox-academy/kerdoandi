@@ -28,6 +28,8 @@ public class DraxApplicationTests {
 					MediaType.APPLICATION_JSON.getSubtype(),
 					Charset.forName("utf8"));
 
+	private final String NEW_FOOD = "{\"name\" : \"milk\",\"amount\" : \"2.0\", \"calorie\" : \"158.0\" }";
+
 	private MockMvc mockMvc;
 
 	@Autowired
@@ -44,4 +46,13 @@ public class DraxApplicationTests {
 						.andExpect(status().isOk());
 	}
 
+
+//	@Test
+//	public void testAddFood() throws Exception {
+//		mockMvc.perform(post("/drax/add")
+//						.content(NEW_FOOD)
+//						.contentType(MediaType.APPLICATION_JSON_UTF8))
+//						.andExpect(status().isOk())
+//						.andExpect(content().json(" {\"foods\": [{\"name\": \"milk\", \"amount\": \"2.0\", \"calorie\": \"158.0\"}]}"));
+//	}
 }
