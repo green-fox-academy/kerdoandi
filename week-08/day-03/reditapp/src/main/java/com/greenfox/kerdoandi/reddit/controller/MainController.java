@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class MainController {
   @Autowired
-  PostRepository postRepository;
+  private PostRepository postRepository;
 
   @RequestMapping(value = "/posts", method = RequestMethod.GET)
   public Posts list() {
@@ -32,7 +32,6 @@ public class MainController {
     postRepository.save(post);
     return post;
   }
-
 
   @RequestMapping(value = "/posts/{id}/downvote", method = RequestMethod.PUT)
   public Post downScore(@PathVariable(value = "id") long id) {

@@ -1,9 +1,7 @@
 package com.greenfox.kerdoandi.reddit.model;
 import org.springframework.stereotype.Component;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Component
@@ -11,11 +9,14 @@ import java.sql.Timestamp;
 public class Post {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  long id;
-  String title;
-  String href;
-  Timestamp timestamp;
-  int score;
+  private long id;
+  @Column(nullable = false)
+  private String title;
+  @Column(nullable = false)
+  private String href;
+  private Timestamp timestamp;
+  @Column(nullable = false)
+  private int score;
 
   public Post() {
     score = 0;
