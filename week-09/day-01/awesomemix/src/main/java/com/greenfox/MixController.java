@@ -30,4 +30,12 @@ public class MixController {
     songs.setSongs(songRepo.findAllByGenreContains(genre));
     return songs;
   }
+//
+//  @RequestMapping(value = "/favourites", method = RequestMethod.GET)
+//  public Songs listFavSongs() {
+//    Songs songs = new Songs();
+//    songs.setSongs(songRepo.findTopByRatingOrderByRatingDesc());
+//    return songs;
+//  }
+
 }
