@@ -36,7 +36,6 @@ public class Ship {
       shipstatus = "empty";
     } else if (0 < totalRockets && totalRockets < 12500) {
       String value = String.valueOf((double) totalRockets/maxAmount*100);
-      System.out.println(value);
       shipstatus = value.concat("%");
     } else if (totalRockets == 12500) {
       shipstatus = "full";
