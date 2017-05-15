@@ -1,14 +1,12 @@
 package com.greenfox.model;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Foods {
   List<Food> foods;
 
-  public Foods(List<Food> foods) {
-    this.foods = foods;
-  }
-
   public Foods() {
+    foods = new ArrayList<>();
   }
 
   public List<Food> getFoods() {
