@@ -44,11 +44,25 @@ public class ToDoController {
     return "redirect:/todo/list";
   }
 
-
-  @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
-  public String edit(Model model, @PathVariable(value = "id") String selectedid) {
-    model.addAttribute("todos", toDoRepository);
+  @RequestMapping(value = "/edit/{id}")
+  public String edit(Model model, @PathVariable(value = "id") Long id) {
+    model.addAttribute("todo", toDoRepository.findOne(id));
     return "edit";
+  }
+
+  @RequestMapping(value = "/{id}/edit")
+  public String editTodos(Model model,
+                          @PathVariable(value = "id") Long id,
+                          @RequestParam(name = "title", required = false) String title,
+                          @RequestParam(name = "active", required = false) boolean active,
+                          @RequestParam(name = "urgent", required = false) boolean urgent) {
+    if (!title.equals("")) {
+      toDoRepository.findOne(id).setTitle(title);
+    }
+    toDoRepository.findOne(id).setDone(active);
+    toDoRepository.findOne(id).setUrgent(urgent);
+    toDoRepository.save(toDoRepository.findOne(id));
+    return "redirect:/todo/list";
   }
 }
 
