@@ -34,7 +34,7 @@ public class MixController {
 //  @RequestMapping(value = "/favourites", method = RequestMethod.GET)
 //  public Songs listFavSongs() {
 //    Songs songs = new Songs();
-//    songs.setSongs(songRepo.findTopByRatingOrderByRatingDesc());
+//    songs.setSongs(songRepo.findAllByAndOrderByRatingDesc());
 //    return songs;
 //  }
 

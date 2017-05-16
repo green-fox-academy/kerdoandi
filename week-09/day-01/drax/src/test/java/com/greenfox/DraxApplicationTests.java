@@ -14,9 +14,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.nio.charset.Charset;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DraxApplication.class)
@@ -47,12 +49,12 @@ public class DraxApplicationTests {
 	}
 
 
-//	@Test
-//	public void testAddFood() throws Exception {
-//		mockMvc.perform(post("/drax/add")
-//						.content(NEW_FOOD)
-//						.contentType(MediaType.APPLICATION_JSON_UTF8))
-//						.andExpect(status().isOk())
-//						.andExpect(content().json(" {\"foods\": [{\"name\": \"milk\", \"amount\": \"2.0\", \"calorie\": \"158.0\"}]}"));
-//	}
+	@Test
+	public void testAddFood() throws Exception {
+		mockMvc.perform(post("/drax/add")
+						.content(NEW_FOOD)
+						.contentType(MediaType.APPLICATION_JSON_UTF8))
+						.andExpect(status().isOk())
+						.andExpect(content().json(" {\"foods\": [{\"name\": \"milk\", \"amount\": \"2.0\", \"calorie\": \"158.0\"}]}"));
+	}
 }
