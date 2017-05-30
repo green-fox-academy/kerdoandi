@@ -1,29 +1,20 @@
 package com.greenfox.controller;
 
-
 import com.greenfox.models.ToDo;
 import com.greenfox.repository.ToDoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/todo")
-public class ToDoController {
+public class TodoController {
+  @Autowired
   ToDoRepository toDoRepository;
-
-  public ToDoController(ToDoRepository todorepo) {
-    toDoRepository = todorepo;
-  }
-
-  @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
-  public String list(Model model, @RequestParam(value = "isActive", defaultValue = "", required = false) String status){
-    model.addAttribute("todos", toDoRepository.findAll());
-    if (status.equals("true")){
-      model.addAttribute("todos", toDoRepository.findAllByIsDoneIsFalse());
-    }
-    return "todolist";
-  }
 
   @RequestMapping("/add")
   public String addTodo(Model model) {
@@ -36,7 +27,6 @@ public class ToDoController {
     toDoRepository.save(new ToDo(todo));
     return "redirect:/todo/list";
   }
-
 
   @RequestMapping(value = "/{id}/delete", method = RequestMethod.GET)
   public String delete(@PathVariable(value = "id") long id) {
@@ -51,18 +41,18 @@ public class ToDoController {
   }
 
   @RequestMapping(value = "/{id}/edit")
-  public String editTodos(Model model,
+  public String editToDos(Model model,
                           @PathVariable(value = "id") Long id,
                           @RequestParam(name = "title", required = false) String title,
-                          @RequestParam(name = "active", required = false) boolean active,
+                          @RequestParam(name = "done", required = false) boolean done,
                           @RequestParam(name = "urgent", required = false) boolean urgent) {
+    ToDo toDoToUpdate = toDoRepository.findOne(id);
     if (!title.equals("")) {
-      toDoRepository.findOne(id).setTitle(title);
+      toDoToUpdate.setTitle(title);
     }
-    toDoRepository.findOne(id).setDone(active);
-    toDoRepository.findOne(id).setUrgent(urgent);
-    toDoRepository.save(toDoRepository.findOne(id));
+    toDoToUpdate.setDone(done);
+    toDoToUpdate.setUrgent(urgent);
+    toDoRepository.save(toDoToUpdate);
     return "redirect:/todo/list";
   }
 }
-
