@@ -23,18 +23,17 @@
     <select id="foods" name="selected_food" title="">
         <option th:each="food : ${nutrition.getFoodList()}"
                 th:text="${food}"
-                th:selected="${fox.food}">
+                th:selected="selected">
         </option>
     </select>
     <label>Drink options</label>
     <select id="drinks" name="selected_drink">
         <option th:each="drinks : ${nutrition.getDrinkList()}"
                 th:text="${drinks}"
-                th:selected="${fox.drink}">
+                th:value="selected">
         </option>
     </select>
     <button type="submit">Change</button>
 </form>
-
 </body>
 </html>

@@ -32,9 +32,12 @@ public class NutritionController {
   }
 
   @RequestMapping("/changeNutrition")
-  public String changeNutrition(@RequestParam("selected_food") String sfoodParam, @RequestParam("selected_drink") String sdrinkParam) {
+  public String changeNutrition(Model model, @RequestParam("selected_food") String sfoodParam, @RequestParam
+  ("selected_drink") String sdrinkParam) {
     fox.setFood(sfoodParam);
     fox.setDrink(sdrinkParam);
+    model.addAttribute("currentFood", fox.getFood());
+    model.addAttribute("currentDrink", fox.getDrink());
     return "redirect:/";
   }
 }
