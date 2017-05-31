@@ -13,7 +13,7 @@
         <th>BALANCE</th>
         <th>TYPE</th>
         <th>GOOD/BAD</th>
-        <th>RAISED BALANCE</th>
+        <th>RAISE MONEY</th>
     </tr>
     <tr th:each="bankAccount : ${bank.baList}" th:class="${bankAccount.isKing()} ? king : notKing">
         <td th:text="${bankAccountStat.count}"></td>
@@ -24,8 +24,40 @@
             <span th:case="true" th:text="${goodguy}"/>
             <span th:case="false" th:text="${badguy}"/>
         </td>
-        <td th:formaction="'Raise balance'" th:action="bankAccount.balance + 10"/>
+        <td >
+            <form method="post" th:action="@{/exercise10/raise}">
+                <button type="submit"  th:value="${bankAccount.name}" th:name="name">Raise Money</button>
+            </form>
+        </td>
     </tr>
+    <form method="post" th:action="@{/exercise10/add}">
+        <tr>
+            <td>
+                New BankAccount
+            </td>
+            <td>
+                <input type="text" name="name"/>
+            </td>
+
+            <td>
+                <input type="text" name="balance"/>
+            </td>
+
+            <td>
+                <input type="text" name="type"/>
+            </td>
+
+            <td>
+                <input type="text" name="goodguy"/>
+            </td>
+
+            <td>
+                <button type="submit">Add New Account</button>
+            </td>
+        </tr>
+    </form>
 </table>
+
+
 </body>
 </html>

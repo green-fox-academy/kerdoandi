@@ -5,9 +5,9 @@
     <title>ToDoApp</title>
 </head>
 <body>
-<h1>Edit Todo</h1>
+<h1 th:text="'Edit Nr. ' + ${todo.id} + ' ToDo'">Edit Todo</h1>
 <form method="post" th:action="@{'/todo/' +${id} + '/edit'}">
-    <span>Todo description:</span>
+    <span>Description:</span>
     <input type="text" name="title" placeholder="edit"></input>
     <label class="checkbox-inline">
         <input type="checkbox" name = "done" value="true" th:checked="${todo.isDone()} ? 'checked'"> Done </input>

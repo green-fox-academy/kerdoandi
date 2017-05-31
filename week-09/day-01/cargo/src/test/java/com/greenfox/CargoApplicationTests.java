@@ -56,6 +56,7 @@ public class CargoApplicationTests {
 						.andExpect(jsonPath("$.ready").value(false));
 	}
 
+
 	@Test
 	public void testShipStatus() throws Exception {
 		mockMvc.perform(get("/rocket/fill?caliber=.25&amount=12500"))
@@ -63,7 +64,6 @@ public class CargoApplicationTests {
 						.andExpect(jsonPath("$.ready").value(true))
 						.andExpect(jsonPath("$.shipstatus").value("full"));
 	}
-
 	@Test
 	public void testShipStatusIsNotOK() throws Exception {
 		mockMvc.perform(get("/rocket/fill?caliber=.25"))

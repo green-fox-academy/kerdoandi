@@ -18,9 +18,9 @@ public class MainController {
   }
 
   @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
-  public String list(Model model, @RequestParam(value = "isActive", defaultValue = "", required = false) String status){
+  public String list(Model model, @RequestParam(value = "isDone", defaultValue = "", required = false) String status){
     model.addAttribute("todos", toDoRepository.findAll());
-      if (status.equals("true")){
+      if (status.equals("false")){
       model.addAttribute("todos", toDoRepository.findAllByIsDoneIsFalse());
     }
     return "todolist";
