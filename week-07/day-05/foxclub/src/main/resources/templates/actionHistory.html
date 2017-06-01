@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Fox Club</title>
+</head>
+<body>
+<ul>
+    <li><a href="/">Information</a></li>
+    <li><a href="nutritionStore.html">Nutrition Store</a></li>
+    <li><a href="trickcenter.html">Trick center</a></li>
+    <li><a href="actionHistory.html">Action History</a></li>
+</ul>
+
+<ul th:each="action : ${actions}">
+    <li th:text="${action}"></li>
+</ul>
+</body>
+</html>

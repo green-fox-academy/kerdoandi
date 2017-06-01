@@ -8,19 +8,32 @@ import java.util.List;
 @Component
 public class Fox {
   private String name;
-  private List<Tricks> trickList;
+  private List<Trick> trickOptionsList = new ArrayList<>();
+  private List<Trick> knownTrickList = new ArrayList<>();
   private String food;
   private String drink;
 
   public Fox() {
-    trickList = new ArrayList<>();
+    trickOptionsList.add(new Trick("singing"));
+    trickOptionsList.add(new Trick("cooking"));
+    trickOptionsList.add(new Trick("joker"));
     name = "Mr. Fox";
   }
 
-  public void addTrick(Tricks trick) {
-    trickList.add(trick);
+  public void addTrickOption(Trick trick) {
+    trickOptionsList.add(trick);
   }
 
+  public void learnTrick(Trick trick) {
+      knownTrickList.add(trick);
+  }
+  public void removeTrick(Trick trick) {
+    for( int i = 0; i < trickOptionsList.size(); i++) {
+      if (trick.getName().equals(trickOptionsList.get(i).getName())) {
+        trickOptionsList.remove(i);
+      }
+    }
+  }
 
   public void setName(String name) {
     this.name = name;
@@ -46,11 +59,19 @@ public class Fox {
     return drink;
   }
 
-  public void setTrickList(List<Tricks> trickList) {
-    this.trickList = trickList;
+  public List<Trick> getTrickOptionsList() {
+    return trickOptionsList;
   }
 
-  public List<Tricks> getTrickList() {
-    return trickList;
+  public void setTrickOptionsList(List<Trick> trickOptionsList) {
+    this.trickOptionsList = trickOptionsList;
+  }
+
+  public List<Trick> getKnownTrickList() {
+    return knownTrickList;
+  }
+
+  public void setKnownTrickList(List<Trick> knownTrickList) {
+    this.knownTrickList = knownTrickList;
   }
 }

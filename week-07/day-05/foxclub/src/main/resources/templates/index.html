@@ -9,13 +9,20 @@
     <li><a href="/">Information</a></li>
     <li><a href="nutritionStore.html">Nutrition Store</a></li>
     <li><a href="trickcenter.html">Trick center</a></li>
+    <li><a href="actionHistory.html">Action History</a></li>
 </ul>
 <img src="greenfox.png" alt="GreenFox"/>
-<p th:text="'This is ' + ${fox.name} + '. Currently living on ' + ${fox.food} + ' and ' + ${fox.drink} + '. He knows ' + ${#lists.size(fox.trickList)} + ' tricks.'"></p>
+<p
+        th:text="'This is ' + ${fox.name} + '. Currently living on ' + ${fox.food} + ' and ' + ${fox.drink} + '. He knows ' + ${#lists.size(fox.knownTrickList)} + ' tricks.'"></p>
 <h1>Known tricks</h1>
-<p th:text="${fox.name} + ' know no tricks, yet. Go and learn some'" th:if="${#lists.size(fox.trickList) == 0}"></p>
-<ul th:each="trick : ${fox.trickList}">
+<p th:text="${fox.name} + ' know no tricks, yet. Go and learn some'"
+   th:if="${#lists.size(fox.knownTrickList) == 0}"></p>
+<ul th:each="trick : ${fox.knownTrickList}">
     <li th:text="${trick.name}"></li>
+</ul>
+<h1>Action History</h1>
+<ul th:each="action : ${latestActions}">
+    <li th:text="${action}"></li>
 </ul>
 </body>
 </html>

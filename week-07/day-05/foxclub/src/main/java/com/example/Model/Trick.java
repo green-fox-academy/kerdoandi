@@ -1,9 +1,9 @@
 package com.example.Model;
 
-public class Tricks {
+public class Trick {
   String name;
 
-  public Tricks(String name) {
+  public Trick(String name) {
     this.name = name;
   }
 
@@ -14,5 +14,10 @@ public class Tricks {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  @Override
+  public String toString() {
+    return name;
   }
 }

@@ -6,15 +6,28 @@
 </head>
 <body>
 <ul>
-    <li><a href="index.html">Information</a></li>
+    <li><a href="/">Information</a></li>
     <li><a href="nutritionStore.html">Nutrition Store</a></li>
     <li><a href="trickcenter.html">Trick center</a></li>
+    <li><a href="actionHistory.html">Action History</a></li>
 </ul>
-
+<span th:text="'No tricks to learn, yet. Go and add some!'"
+      th:if="${#lists.size(fox.getTrickOptionsList()) == 0}">
+</span>
+<form method="post" th:action="@{/learnTrick}" th:if="${#lists.size(fox.getTrickOptionsList()) != 0}">
+    <label>Learn tricks</label>
+    <select name="selected_trick" title="">
+        <option th:each="trick : ${fox.getTrickOptionsList()}"
+                th:text="${trick.name}"
+                th:selected="selected">
+        </option>
+    </select>
+    <button type="submit">Learn trick</button>
+</form>
 <form method="post" th:action="@{/addtrick}">
-    <label>New trick</label>
+    <label>Add new trick</label>
     <input type="text" name="new_trick" placeholder="New trick"/>
-    <button type="submit">Change</button>
+    <button type="submit">Add new trick</button>
 </form>
 </body>
 </html>
