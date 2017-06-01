@@ -18,12 +18,21 @@
     </tr>
     <tr th:each="todo : ${todos}">
         <td th:style="|border : 1px solid|" th:text="${todo.id}"></td>
-        <td th:style="|border : 1px solid|" th:text="${todo.title}"></td>
+        <td id ="clickcell" th:style="|border : 1px solid|" th:text="${todo.title}"></td>
         <td th:style="|border : 1px solid|" th:text="${todo.isDone()}"></td>
         <td th:style="|border : 1px solid|" th:text="${todo.isUrgent()}">   </td>
         <td th:style="|border : 1px solid|"><a th:href="@{'/todo/' + ${todo.id} + '/delete'}">delete</a></td>
         <td th:style="|border : 1px solid|"><a th:href="@{'/todo/edit/' + ${todo.id}}">edit</a></td>
     </tr>
 </table>
+
+<p><a href = "/todo/?isDone=false">List active todos</a></p>
+<p><a href = "/todo/">Show all todos</a></p>
+<script>
+    $("td#clickcell").bind("click",function() {
+        location = "/todo/edit/" + id;
+    });
+</script>
+<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
 </body>
 </html>
