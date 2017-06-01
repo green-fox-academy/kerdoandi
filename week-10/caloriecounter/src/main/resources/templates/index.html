@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Calorie Table</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<h1>Calorie Table</h1>
+
+<table>
+    <tr>
+        <th>DATE</th>
+        <th>TYPE</th>
+        <th>DESCRIPTION</th>
+        <th>CALORIES</th>
+    </tr>
+    <tr th:each="meal : ${meals}">
+        <td th:text="${meal.date}"></td>
+        <td th:text="${meal.type}"></td>
+        <td th:text="${meal.description}"></td>
+        <td th:text="${meal.calories}"></td>
+        <td><a th:href="@{'/meal/' + ${meal.id} + '/delete'}">delete</a></td>
+        <td><a th:href="@{'/meal/edit/' + ${meal.id}}">edit</a></td>
+    </tr>
+</table>
+
+
+<table>
+    <tr>
+        <th>NUMBER OF MEALS</th>
+        <th>TOTAL CALORIES</th>
+    </tr>
+    <tr>
+        <td th:text="${nrOfMeals}"></td>
+        <td th:text="${totalCal}"></td>
+    </tr>
+</table>
+
+<ul>
+    <li th:each="mealtype : ${mealtypes}">
+        <p><span th:text="${mealtype.name}"></span></p>
+    </li>
+</ul>
+</body>
+</html>
