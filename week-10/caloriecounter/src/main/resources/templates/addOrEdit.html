@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Calorie Table</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+
+<form th:if="${meal} != null" method="post" th:action="@{'/meal/edit/' + ${meal.id} + '/save'}">
+<h1>Edit meal</h1>
+    <table>
+        <tr>
+            <th>DATE</th>
+            <th>TYPE</th>
+            <th>DESCRIPTION</th>
+            <th>CALORIES</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" th:value="${meal.date}"/>
+            </td>
+            <td>
+                <select id="mealtypes" name="type">
+                    <option th:each="mealtype : ${mealtypes}"
+                            th:text="${mealtype.name}"
+                            th:selected="${meal.isMealTypeSelected(mealtype)}">
+                    </option>
+                </select>
+            </td>
+            <td>
+                <input type="text" name="desc" th:value="${meal.description}"/>
+            </td>
+            <td>
+                <input type="text" name="cal" th:value="${meal.calories}"/>
+            </td>
+            <td>
+                <button type="submit">Update</button>
+            </td>
+            <td>
+                <button th:hreflang="@{'/meal/cancel'}">Cancel</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<form th:if="${meal} == null" th:action="@{'/meal/add/save'}">
+    <h1>Add meal</h1>
+    <table>
+        <tr>
+            <th>TYPE</th>
+            <th>DESCRIPTION</th>
+            <th>CALORIES</th>
+        </tr>
+        <tr>
+            <td>
+                <select id="mealtypes2" name="type">
+                    <option th:each="mealtype : ${mealtypes}"
+                            th:text="${mealtype.name}"
+                            th:value="${mealtype.name}"
+                            th:selected="selected">
+                    </option>
+                </select>
+            </td>
+            <td>
+                <input type="text" name="desc"/>
+            </td>
+            <td>
+                <input type="text" name="cal"/>
+            </td>
+            <td>
+                <button type="submit">Add new meal</button>
+            </td>
+            <td>
+                <button th:hreflang="@{'/meal/cancel'}">Cancel</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
