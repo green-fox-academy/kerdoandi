@@ -51,7 +51,7 @@ public class MainController {
    type, @RequestParam(value = "desc") String desc, @RequestParam(value = "cal")int cal){
     Meal mealToEdit = mealsRepository.findOne(id);
     model.addAttribute("meal", mealToEdit);
-    mealToEdit.setDate(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+    mealToEdit.setDate(LocalDateTime.now().format(DateTimeFormatter.BASIC_ISO_DATE));
     mealToEdit.setType(type);
     mealToEdit.setDescription(desc);
     mealToEdit.setCalories(cal);

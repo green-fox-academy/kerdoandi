@@ -1,47 +1,29 @@
 package com.greenfox.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-@Entity
-public class Meal {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  long id;
+public class MealWithoutId {
   String date;
   String type;
   String description;
   int calories;
 
+  public MealWithoutId() {
+  }
 
-
-  public Meal(String type, String description, int calories) {
+  public MealWithoutId(String type, String description, int calories) {
     date = LocalDateTime.now().format(DateTimeFormatter.BASIC_ISO_DATE);
     this.type = type;
     this.description = description;
     this.calories = calories;
   }
 
-  public Meal() {
-  }
-
-  public Meal(String date, String type, String description, int calories) {
+  public MealWithoutId(String date, String type, String description, int calories) {
     this.date = date;
     this.type = type;
     this.description = description;
     this.calories = calories;
-  }
-
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
   }
 
   public String getDate() {
@@ -78,16 +60,5 @@ public class Meal {
 
   public boolean isMealTypeSelected(MealType mealType) {
     return mealType.equals(type);
-  }
-
-  @Override
-  public String toString() {
-    return "Meal{" +
-            "id=" + id +
-            ", date='" + date + '\'' +
-            ", type='" + type + '\'' +
-            ", description='" + description + '\'' +
-            ", calories=" + calories +
-            '}';
   }
 }
