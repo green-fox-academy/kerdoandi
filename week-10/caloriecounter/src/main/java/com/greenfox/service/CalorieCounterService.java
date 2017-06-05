@@ -37,11 +37,13 @@ public class CalorieCounterService {
     return stats;
   }
 
-  public ResponseStatus addNewMeal(MealWithoutId mealWithoutId) {
+
+  public Object addNewMeal(MealWithoutId mealWithoutId) {
     ResponseStatus status = new ResponseStatus("OK");
     mealDataValidator.setMissingParamList(mealWithoutId);
     if (mealDataValidator.getMissingParamList().size() != 0) {
       status.setStatus("NOT OK");
+      return mealDataValidator;
     } else {
       if(isCorrectMealType(mealWithoutId.getType())) {
         Meal meal = new Meal(mealWithoutId.getDate(), mealWithoutId.getType(), mealWithoutId.getDescription(), mealWithoutId.getCalories
@@ -64,7 +66,7 @@ public class CalorieCounterService {
     return isCorrectMealType;
   }
 
-  public ResponseStatus updateMeal(Meal meal) {
+  public Object updateMeal(Meal meal) {
     ResponseStatus status = new ResponseStatus("OK");
 
     mealDataValidator.setMissingParamListOfMeal(meal);

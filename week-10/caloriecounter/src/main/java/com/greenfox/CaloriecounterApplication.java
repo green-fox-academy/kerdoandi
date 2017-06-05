@@ -30,7 +30,7 @@ public class CaloriecounterApplication implements CommandLineRunner {
 		mealTypeRepository.save(new MealType("Dinner"));
 		mealTypeRepository.save(new MealType("Midnight Snack"));
 
-		mealsRepository.save(new Meal("Breakfast", "jbfsjk;df",463));
-		mealsRepository.save(new Meal("Dinner", "jbfsjk;df",975));
+		mealsRepository.save(new Meal("Breakfast", "alma",400));
+		mealsRepository.save(new Meal("Dinner", "banan",100));
 	}
 }

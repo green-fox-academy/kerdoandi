@@ -13,24 +13,24 @@ public class CalorieRestController {
   @Autowired
   CalorieCounterService calorieCounterService;
 
-  @RequestMapping("/getMeals")
+  @GetMapping("/getMeals")
   public Object getMeals(){
     return calorieCounterService.getMeals();
   }
 
-  @RequestMapping("/getStats")
+  @GetMapping("/getStats")
   public Object getStats(){
     return calorieCounterService.getStats();
   }
 
 
   @PostMapping("/meal")
-  public ResponseStatus addNewMeal(@RequestBody MealWithoutId mealWithoutId){
+  public Object addNewMeal(@RequestBody MealWithoutId mealWithoutId){
     return calorieCounterService.addNewMeal(mealWithoutId);
   }
 
   @PutMapping("/meal")
-  public ResponseStatus updateMeal(@RequestBody Meal meal){
+  public Object updateMeal(@RequestBody Meal meal){
     return calorieCounterService.updateMeal(meal);
   }
 
