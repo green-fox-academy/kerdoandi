@@ -18,7 +18,7 @@ public class Meal {
   }
 
   public Meal(String type, String description, int calories) {
-    date = LocalDateTime.now().format(DateTimeFormatter.BASIC_ISO_DATE);
+    date = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
     this.type = type;
     this.description = description;
     this.calories = calories;

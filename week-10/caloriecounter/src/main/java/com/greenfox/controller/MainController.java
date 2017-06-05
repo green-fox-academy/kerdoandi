@@ -51,7 +51,7 @@ public class MainController {
    type, @RequestParam(value = "desc") String desc, @RequestParam(value = "cal")int cal){
     Meal mealToEdit = mealsRepository.findOne(id);
     model.addAttribute("meal", mealToEdit);
-    mealToEdit.setDate(LocalDateTime.now().format(DateTimeFormatter.BASIC_ISO_DATE));
+    mealToEdit.setDate(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
     mealToEdit.setType(type);
     mealToEdit.setDescription(desc);
     mealToEdit.setCalories(cal);
@@ -76,7 +76,7 @@ public class MainController {
     return "addOrEdit";
   }
 
-  @RequestMapping("/add/save")
+  @RequestMapping("/add")
   public String saveNewMeal(Model model, @RequestParam(value = "type") String
           type, @RequestParam(value = "desc") String desc, @RequestParam(value = "cal")int cal) {
     Meal meal = new Meal(type, desc, cal);
