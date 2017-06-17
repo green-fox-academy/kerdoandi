@@ -1,12 +1,12 @@
 package com.greenfox.service;
 
+import com.greenfox.model.Question;
 import com.greenfox.model.QuestionAndAnswers;
 import com.greenfox.repository.QuestionAndAnswerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -32,13 +32,13 @@ public class QuestionsService {
     return listOfIds;
   }
 
-  public HashMap<Long, String> getRandomQuestions(){
+  public List<Question> getRandomQuestions(){
     int limit = (int) questionAndAnswerRepo.count();
     List<Integer> randomFiveIds = getFiveRandomIds(limit);
 
-    HashMap<Long, String> randomQuestions = new HashMap<>();
+    List<Question> randomQuestions = new ArrayList<>();
     for (Integer i : randomFiveIds) {
-      randomQuestions.put(Long.valueOf(i), questionAndAnswerRepo.findOne((long) i).getQuestion());
+      randomQuestions.add(new Question((long) i, questionAndAnswerRepo.findOne((long) i).getQuestion()));
     }
     return randomQuestions;
   }

@@ -1,15 +1,15 @@
 package com.greenfox.model;
 
-import java.util.HashMap;
+import java.util.List;
 
 public class Questions {
   int id;
-  HashMap<Long, String> questions;
+  List<Question> questions;
 
   public Questions() {
   }
 
-  public Questions(int id, HashMap<Long, String> questions) {
+  public Questions(int id, List<Question> questions) {
     this.id = id;
     this.questions = questions;
   }
@@ -22,11 +22,11 @@ public class Questions {
     this.id = id;
   }
 
-  public HashMap<Long, String> getQuestions() {
+  public List<Question> getQuestions() {
     return questions;
   }
 
-  public void setQuestionList(HashMap<Long, String> questions) {
+  public void setQuestionList(List<Question> questions) {
     this.questions = questions;
   }
 }
