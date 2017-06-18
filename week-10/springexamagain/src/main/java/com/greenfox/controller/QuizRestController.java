@@ -33,7 +33,8 @@ public class QuizRestController {
     RestTemplate rt = new RestTemplate();
     boolean isCorrect = true;
     if (questionAndAnswersService.answerValidator(questions, answers)) {
-      return rt.postForObject("https://springexamserver.herokuapp.com/projects/sabers","request", ProjectList.class);
+    ProjectList pl = rt.postForObject("https://springexamserver.herokuapp.com/projects/sabers","request", ProjectList.class);
+      return pl;
     } else {
       return new ProjectList();
     }
