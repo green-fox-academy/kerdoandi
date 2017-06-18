@@ -1,7 +1,6 @@
 package com.greenfox.service;
 
-import com.greenfox.model.Question;
-import com.greenfox.model.QuestionAndAnswers;
+import com.greenfox.model.*;
 import com.greenfox.repository.QuestionAndAnswerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,11 +10,9 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-public class QuestionsService {
+public class QuestionAndAnswersService {
   @Autowired
   QuestionAndAnswerRepo questionAndAnswerRepo;
-  @Autowired
-  QuestionAndAnswers questionAndAnswers;
 
   public List<Integer> getFiveRandomIds(int limit) {
     List<Integer> listOfIds = new ArrayList<>();
@@ -41,5 +38,16 @@ public class QuestionsService {
       randomQuestions.add(new Question((long) i, questionAndAnswerRepo.findOne((long) i).getQuestion()));
     }
     return randomQuestions;
+  }
+
+  public boolean answerValidator(Questions questions, Answers answers)  {
+    System.out.println(answers);
+    for (Answer answer : answers.getAnswers()) {
+      if (answer.getId() != questions.getQuestions().get(answers.getAnswers().indexOf(answer)).getId() && !answer
+              .getAnswer().equals(questionAndAnswerRepo.findOne(answer.getId()).getAnswer())) {
+        return false;
+      }
+    }
+    return true;
   }
 }

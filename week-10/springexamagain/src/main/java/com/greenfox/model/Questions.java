@@ -1,5 +1,6 @@
 package com.greenfox.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Questions {
@@ -7,6 +8,7 @@ public class Questions {
   List<Question> questions;
 
   public Questions() {
+    questions = new ArrayList<>();
   }
 
   public Questions(int id, List<Question> questions) {
