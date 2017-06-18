@@ -1,6 +1,7 @@
 package com.greenfox.controller;
 
 import com.greenfox.model.Answers;
+import com.greenfox.model.Project;
 import com.greenfox.model.ProjectList;
 import com.greenfox.model.Questions;
 import com.greenfox.repository.QuestionAndAnswerRepo;
@@ -32,8 +33,15 @@ public class QuizRestController {
   public ProjectList postAnswers(@RequestBody Answers answers) {
     RestTemplate rt = new RestTemplate();
     boolean isCorrect = true;
-    if (questionAndAnswersService.answerValidator(questions, answers)) {
-    ProjectList pl = rt.postForObject("https://springexamserver.herokuapp.com/projects/sabers","request", ProjectList.class);
+    if(isCorrect) {
+//    if (questionAndAnswersService.answerValidator(questions, answers)) {
+      ProjectList pl = new ProjectList();
+      pl.addProject(new Project(1, "Project 1"));
+      pl.addProject(new Project(2, "Project 2"));
+      pl.addProject(new Project(3, "Project 3"));
+      pl.addProject(new Project(4, "Project 4"));
+      pl.addProject(new Project(5, "Project 5"));
+      rt.postForObject("https://springexamserver.herokuapp.com/projects/sabers",pl, ProjectList.class);
       return pl;
     } else {
       return new ProjectList();
