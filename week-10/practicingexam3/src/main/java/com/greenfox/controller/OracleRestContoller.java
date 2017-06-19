@@ -6,20 +6,19 @@ import com.greenfox.model.ReportMessage;
 import com.greenfox.repository.QuestionRepository;
 import com.greenfox.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class OracleRestContoller {
   QuestionService questionService;
   QuestionRepository questionRepository;
+  ReportMessage reportMessage;
 
   @Autowired
-  public OracleRestContoller(QuestionService questionService, QuestionRepository questionRepository) {
+  public OracleRestContoller(QuestionService questionService, QuestionRepository questionRepository, ReportMessage reportMessage) {
     this.questionService = questionService;
     this.questionRepository = questionRepository;
+    this.reportMessage = reportMessage;
   }
 
   @GetMapping("/dilemma")
@@ -34,6 +33,13 @@ public class OracleRestContoller {
   }
 
   @PostMapping("/teach")
+  public Object teachQuestion(@RequestBody Question question) {
+    try {
+      return questionService.teachQuestions(question);
+    } catch (Exception e) {
+      return e.getLocalizedMessage();
+    }
+  }
 
   @GetMapping("/wisdoms")
   public Capacity getNrOfQuestions() {
