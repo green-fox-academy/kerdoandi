@@ -27,7 +27,10 @@ public class QuestionService {
     return false;
   }
 
-  public Question givebackAnswer(String questionReceived) {
+  public Question givebackAnswer(String questionReceived) throws Exception {
+    if (questionReceived == null) {
+      throw new Exception("Question is null");
+    }
     if (checkIfQuestionIsLearned(questionReceived)) {
       return questionRepository.findQuestionByQuestion(questionReceived);
     } else {
