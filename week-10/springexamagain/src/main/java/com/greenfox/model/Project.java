@@ -1,18 +1,15 @@
 package com.greenfox.model;
 
-/**
- * Created by Andi on 6/18/2017.
- */
 public class Project {
   long id;
-  String projectname;
+  String nameOfProject;
 
   public Project() {
   }
 
-  public Project(long id, String projectname) {
+  public Project(long id, String nameOfProject) {
     this.id = id;
-    this.projectname = projectname;
+    this.nameOfProject = nameOfProject;
   }
 
   public long getId() {
@@ -24,10 +21,10 @@ public class Project {
   }
 
   public String getProjectname() {
-    return projectname;
+    return nameOfProject;
   }
 
-  public void setProjectname(String projectname) {
-    this.projectname = projectname;
+  public void setProjectname(String nameOfProject) {
+    this.nameOfProject = nameOfProject;
   }
 }

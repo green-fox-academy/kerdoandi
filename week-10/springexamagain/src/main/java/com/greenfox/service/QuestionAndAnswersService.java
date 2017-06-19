@@ -40,11 +40,9 @@ public class QuestionAndAnswersService {
     return randomQuestions;
   }
 
-  public boolean answerValidator(Questions questions, Answers answers)  {
-    System.out.println(answers);
+  public boolean answerValidator(Answers answers)  {
     for (Answer answer : answers.getAnswers()) {
-      if (answer.getId() != questions.getQuestions().get(answers.getAnswers().indexOf(answer)).getId() && !answer
-              .getAnswer().equals(questionAndAnswerRepo.findOne(answer.getId()).getAnswer())) {
+      if (!answer.getAnswer().equals(questionAndAnswerRepo.findOne(answer.getId()).getAnswer())) {
         return false;
       }
     }
