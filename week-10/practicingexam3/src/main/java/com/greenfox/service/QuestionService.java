@@ -13,14 +13,19 @@ import java.util.Random;
 
 @Service
 public class QuestionService {
-  @Autowired
   QuestionRepository questionRepository;
-
-  @Autowired
   AnswerRepository answerRepository;
+  ReportMessage reportMessage;
 
   @Autowired
-  ReportMessage reportMessage;
+  public QuestionService(QuestionRepository questionRepository, AnswerRepository answerRepository, ReportMessage reportMessage) {
+    this.questionRepository = questionRepository;
+    this.answerRepository = answerRepository;
+    this.reportMessage = reportMessage;
+  }
+
+  public QuestionService() {
+  }
 
   public boolean checkIfQuestionIsLearned(String questionReceived) {
     for (Question question : questionRepository.findAll()) {

@@ -22,4 +22,9 @@ public class Answer {
   public void setRandomAnswer(String randomAnswer) {
     this.randomAnswer = randomAnswer;
   }
+
+  @Override
+  public String toString() {
+    return randomAnswer;
+  }
 }
