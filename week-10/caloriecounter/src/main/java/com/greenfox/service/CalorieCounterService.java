@@ -14,20 +14,24 @@ import java.util.HashMap;
 
 @Service
 public class CalorieCounterService {
-  @Autowired
   MealsRepository mealsRepository;
-  @Autowired
   MealTypeRepository mealTypeRepository;
-  @Autowired
   MealDataValidator mealDataValidator;
+
+  @Autowired
+  public CalorieCounterService(MealsRepository mealsRepository, MealTypeRepository mealTypeRepository, MealDataValidator mealDataValidator) {
+    this.mealsRepository = mealsRepository;
+    this.mealTypeRepository = mealTypeRepository;
+    this.mealDataValidator = mealDataValidator;
+  }
 
   public Iterable<Meal> getMeals() {
     return mealsRepository.findAll();
   }
 
-  public HashMap<String, Number> getStats() {
-    HashMap<String, Number> stats = new HashMap<>();
-    long nrOfMeals = mealsRepository.count();
+  public HashMap<String, Integer> getStats() {
+    HashMap<String, Integer> stats = new HashMap<>();
+    int nrOfMeals = (int) mealsRepository.count();
     int totalcal = 0;
     for (Meal meal : mealsRepository.findAll()) {
       totalcal += meal.getCalories();
