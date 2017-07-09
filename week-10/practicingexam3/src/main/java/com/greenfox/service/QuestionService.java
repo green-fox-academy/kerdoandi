@@ -8,6 +8,7 @@ import com.greenfox.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -27,7 +28,7 @@ public class QuestionService {
   public QuestionService() {
   }
 
-  public boolean checkIfQuestionIsLearned(String questionReceived) {
+  private boolean checkIfQuestionIsLearned(String questionReceived) {
     for (Question question : questionRepository.findAll()) {
       if(questionReceived.equals(question.getQuestion())) {
         return true;
@@ -60,11 +61,12 @@ public class QuestionService {
     }
   }
 
-  public Answer pickRandomAnswer() {
+  Answer pickRandomAnswer() {
     Random random = new Random();
     int limit = (int) answerRepository.count();
-    int randomNr = random.nextInt(limit) + 1;
-    List<Answer> answerList = (List) answerRepository.findAll();
+    int randomNr = random.nextInt(limit - 1);
+    List<Answer> answerList = new ArrayList<>();
+    answerList = answerRepository.findAll();
     return answerList.get(randomNr);
   }
 }

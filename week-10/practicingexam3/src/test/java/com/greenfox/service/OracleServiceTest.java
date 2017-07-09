@@ -1,7 +1,10 @@
 package com.greenfox.service;
 
 import com.greenfox.Practicingexam3Application;
-import com.greenfox.model.Question;
+import com.greenfox.model.Answer;
+import com.greenfox.model.ReportMessage;
+import com.greenfox.repository.AnswerRepository;
+import com.greenfox.repository.QuestionRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +14,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import static org.junit.Assert.assertEquals;
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
@@ -19,19 +24,34 @@ import static org.mockito.Mockito.when;
 @WebAppConfiguration
 @EnableWebMvc
 public class OracleServiceTest {
-  private QuestionService questionService;
+  private QuestionRepository questionRepository;
+  private AnswerRepository answerRepository;
+  private ReportMessage reportMessage;
+  List<Answer> answerlist;
+  private Answer a1;
+  private Answer a2;
+  private Answer a3;
 
   @Before
   public void setup() throws Exception {
-    questionService = Mockito.mock(QuestionService.class);
+    questionRepository = Mockito.mock(QuestionRepository.class);
+    answerRepository = Mockito.mock(AnswerRepository.class);
+    reportMessage = Mockito.mock(ReportMessage.class);
+    answerlist = new ArrayList<>();
+    a1 = new Answer("a");
+    a2 = new Answer("b");
+    a3 = new Answer("c");
+    answerlist.add(a1);
+    answerlist.add(a2);
+    answerlist.add(a3);
+    when(answerRepository.findAll()).thenReturn(answerlist);
+    when(answerRepository.count()).thenReturn(3L);
+    when(reportMessage.getReportMessage()).thenReturn("valami");
   }
 
   @Test
   public void pickRandomAnswerShouldReturnrandomString() throws Exception {
-    Question question = new Question("x");
-    when(questionService.checkIfQuestionIsLearned(question.getQuestion())).thenReturn(false);
-    when(questionService.pickRandomAnswer().getRandomAnswer()).thenReturn("Without a doubt");
-
-    assertEquals("Without a doubt", question.getAnswer());
+    QuestionService questionService = new QuestionService(questionRepository, answerRepository,reportMessage);
+    when(questionService.pickRandomAnswer()).thenReturn(a1);
   }
 }
