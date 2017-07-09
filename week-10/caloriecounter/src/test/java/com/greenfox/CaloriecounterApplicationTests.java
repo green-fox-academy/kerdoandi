@@ -1,8 +1,7 @@
 package com.greenfox;
 
-import com.greenfox.model.MealWithoutId;
+import com.greenfox.model.Meal;
 import com.greenfox.repository.MealsRepository;
-import com.greenfox.service.MealDataValidator;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,30 +41,34 @@ public class CaloriecounterApplicationTests {
 	@Autowired
 	MealsRepository mealsRepository;
 
-	@Autowired
-	MealDataValidator mealDataValidator;
-
-	MealWithoutId mealWithoutId = new MealWithoutId("Breakfast", "korte", 200);
+	private Meal meal1 = new Meal("Breakfast", "apple",400);
+	private Meal meal2 = new Meal("Dinner", "banan",100);
 
 	@Before
 	public void setup() throws Exception {
 		this.mockMvc = webAppContextSetup(webApplicationContext).build();
 	}
 
-
 	@Test
 	public void testGetMeals() throws Exception {
+		mealsRepository.deleteAll();
+		mealsRepository.save(meal1);
+		mealsRepository.save(meal2);
 		mockMvc.perform(get("/getMeals"))
 						.andExpect(content().contentType(contentType))
 						.andExpect(jsonPath("$.[0].id").value("1"))
 						.andExpect(jsonPath("$.[0].type").value("Breakfast"))
-						.andExpect(jsonPath("$.[0].description").value("alma"))
+						.andExpect(jsonPath("$.[0].description").value("apple"))
 						.andExpect(jsonPath("$.[0].calories").value("400"))
+						.andExpect(jsonPath("$.[1].calories").value("100"))
 						.andExpect(status().isOk());
 	}
 
 	@Test
 	public void testGetStats() throws Exception {
+		mealsRepository.deleteAll();
+		mealsRepository.save(meal1);
+		mealsRepository.save(meal2);
 		mockMvc.perform(get("/getStats"))
 						.andExpect(content().contentType(contentType))
 						.andExpect(jsonPath("['number of meals']").value("2"))

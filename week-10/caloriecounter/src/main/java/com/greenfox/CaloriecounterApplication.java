@@ -1,6 +1,5 @@
 package com.greenfox;
 
-import com.greenfox.model.Meal;
 import com.greenfox.model.MealType;
 import com.greenfox.repository.MealTypeRepository;
 import com.greenfox.repository.MealsRepository;
@@ -29,8 +28,5 @@ public class CaloriecounterApplication implements CommandLineRunner {
 		mealTypeRepository.save(new MealType("Snack"));
 		mealTypeRepository.save(new MealType("Dinner"));
 		mealTypeRepository.save(new MealType("Midnight Snack"));
-
-		mealsRepository.save(new Meal("Breakfast", "alma",400));
-		mealsRepository.save(new Meal("Dinner", "banan",100));
 	}
 }
