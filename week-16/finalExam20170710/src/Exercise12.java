@@ -19,7 +19,7 @@ public class Exercise12 {
     System.out.println(Arrays.toString(returnSumOfEachRowWithListMatrix(matrixFromLists)));
   }
 
-  private static int[] returnSumOfEachRow(int[][] matrix) {
+  public static int[] returnSumOfEachRow(int[][] matrix) {
     int[] sumOfRowArray = new int[matrix.length];
     for (int i = 0; i < matrix.length; i++) {
       int sumOfGivenRow = 0;
